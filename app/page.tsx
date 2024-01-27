@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import uchslogo from '../public/uchslogo.png';
 
+
 const Home = () => {
   return (
     <div className=" w-screen h-screen bg-black flex justify-center items-center flex-col text-white text-3xl md:text-5xl">
