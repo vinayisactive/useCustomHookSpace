@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
-import { Roboto } from "next/font/google";
+import { Manrope } from "next/font/google";
 import "./globals.css";
-import Navbar from "./component/navbar/navbar";
+import Navbar from './component/Navbar/Navbar'
 
-const inter = Roboto({
-  weight: '700',
+const inter = Manrope({
+  weight: '400',
   subsets: ['latin'],
 })
 

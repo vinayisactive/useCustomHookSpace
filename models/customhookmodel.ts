@@ -25,11 +25,6 @@ const hookSchema = new Schema<HookDocument, HookModel>({
     required: true,
     unique: true,
  },
- secondarylang: {
-    type: String,
-    required: true,
-    unique: true,
- },
 }, {
  timestamps: true,
 });

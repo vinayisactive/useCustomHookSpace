@@ -30,3 +30,8 @@
   .active2{
     color: white
   }
+
+  .boldclass{
+    color: white; 
+    font-size: 40px;  
+  }
