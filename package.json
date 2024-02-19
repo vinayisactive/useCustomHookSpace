@@ -8,6 +8,7 @@
     "start": "next start",
     "lint": "next lint"
   },
+  "proxy": "http://localhost:3000/",
   "dependencies": {
     "cheerio": "^1.0.0-rc.12",
     "mongodb": "^6.3.0",

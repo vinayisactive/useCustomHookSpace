@@ -39,7 +39,7 @@ const page = async ({ params }: { params: { slug: string } }) => {
       </div>
     );
   } catch (err) {
-    console.log(err)
+    console.log(err);
     return (
       <div className=" w-full h-full flex justify-center items-center text-3xl text-white">
         Oops! maybe your internet..

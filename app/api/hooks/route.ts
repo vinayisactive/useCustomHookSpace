@@ -5,9 +5,9 @@ import { NextResponse, NextRequest  } from "next/server";
 export const POST  = async(request : NextRequest) => {
     try {
         await connectMongoDB(); 
-        const {hookname, description, primarylang, secondarylang} = await request.json(); 
+        const {hookname, description, primarylang} = await request.json(); 
 
-        await customhooks.create({hookname, description, primarylang, secondarylang})
+        await customhooks.create({hookname, description, primarylang})
         
         return NextResponse.json({
             message : "hook created"

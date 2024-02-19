@@ -8,10 +8,8 @@ export const POST = async (request: NextRequest) => {
     const { hookname } = await request.json();
     console.log(hookname);
     
-
-    // const hook = await customhooks.findOne({ "hookname": hookname });
-
-    // return NextResponse.json({ hook: hook });
+    const hook = await customhooks.findOne({ "hookname": hookname });
+    return NextResponse.json({ hook: hook}); 
   } catch (error) {
     return NextResponse.json({ error: error }, { status: 500 });
   }
