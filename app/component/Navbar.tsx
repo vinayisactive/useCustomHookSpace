@@ -2,7 +2,7 @@
 
 import React from "react";
 import Image from "next/image";
-import uchslogo from "../../../public/uchslogo.png";
+import uchslogo from "@/public/uchslogo.png";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 

@@ -1,4 +1,4 @@
-import Sidebar from "@/app/component/sidebar/sidebar";
+import Sidebar from "@/app/component/sidebar";
 
 export default async function CustomhookpageLayout({
     children,
