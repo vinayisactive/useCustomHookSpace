@@ -1,1 +1,1 @@
-export const hooks = ["useDataAPI",];
+export const hooks = ["useDataAPI","useLocalStorage"];

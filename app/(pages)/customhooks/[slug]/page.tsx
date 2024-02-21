@@ -7,12 +7,12 @@ const page = async ({ params }: { params: { slug: string } }) => {
     const raw = await fetch("https://usecustomhookspace.vercel.app/api/hook", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ hookname: params.slug }),
+      body: JSON.stringify({ hookname: params?.slug }),
       next: { revalidate: 0 },
     });
 
     if (!raw.ok) {
-      throw new Error(`Failed to fetch hook: ${raw.statusText}`);
+      throw new Error(`Failed to fetch hook: ${raw.statusText}`); 
     }
 
     const jsonData = await raw.json();
