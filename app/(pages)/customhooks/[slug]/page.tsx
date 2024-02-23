@@ -8,7 +8,7 @@ const page = async ({ params }: { params: { slug: string } }) => {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ hookname: params?.slug }),
-      next: { revalidate: 7200 },
+      next: { revalidate: 0 },
     });
 
     if (!raw.ok) {
@@ -25,6 +25,8 @@ const page = async ({ params }: { params: { slug: string } }) => {
       toUse,
       toUseCode,
     } = data;
+
+    
 
 
     const parsedDescriptionOne = parse(description);
@@ -49,9 +51,10 @@ const page = async ({ params }: { params: { slug: string } }) => {
         ? (<div></div>) 
         : (<div className="w-full flex flex-col gap-4 px-6 lg:px-0 text-white">
             <h1 className="text-4xl">▸Using <span className="text-[#62F983]"> {hookname} </span>customhook</h1>
-            <div className="text-lg text-[#8e8e8e]">
-              { serializedDescriptionTwo }
-           </div>
+            <div
+              dangerouslySetInnerHTML={{ __html: serializedDescriptionTwo }}
+              className="text-lg text-[#8e8e8e]"
+           />
           </div>
          )}
 
@@ -68,5 +71,5 @@ const page = async ({ params }: { params: { slug: string } }) => {
     );
   }
 };
- 
+
 export default page;
