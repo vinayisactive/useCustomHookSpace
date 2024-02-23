@@ -12,32 +12,54 @@ const page = async ({ params }: { params: { slug: string } }) => {
     });
 
     if (!raw.ok) {
-      throw new Error(`Failed to fetch hook: ${raw.statusText}`); 
+      throw new Error(`Failed to fetch hook: ${raw.statusText}`);
     }
 
     const jsonData = await raw.json();
     const data = jsonData?.hook;
-    const { description } = data;
+    const {
+      hookname,
+      primarylang,
+      description,
+      toUseDescription,
+      toUse,
+      toUseCode,
+    } = data;
 
-    const parsedHTML = parse(description);
-    const serializedHTML = serialize(parsedHTML);
+
+    const parsedDescriptionOne = parse(description);
+    const serializedDescriptionOne = serialize(parsedDescriptionOne);
+
+    const parsedDescriptionTwo = parse(toUseDescription);
+    const serializedDescriptionTwo = serialize(parsedDescriptionTwo);
 
     return (
       <div className="w-full h-full text-white flex flex-col items-center gap-10 pt-14 overflow-y-scroll lg:pr-4 scroll-smooth pb-14">
-        <div className="w-full flex flex-col gap-3 px-6 lg:px-0 text-white">
-          <h1 className="text-4xl"> ▸{data?.hookname}</h1>
+        <div className="w-full flex flex-col gap-4 px-6 lg:px-0 text-white">
+          <h1 className="text-4xl"> ▸{hookname}</h1>
           <div
-            dangerouslySetInnerHTML={{ __html: serializedHTML }}
+            dangerouslySetInnerHTML={{ __html: serializedDescriptionOne }}
             className="text-lg text-[#8e8e8e]"
           />
         </div>
 
-        <CodeSnippet
-          primaryLang={data?.primarylang}
-          hookname={data?.hookname}
-        />
+        <CodeSnippet primaryLang={primarylang} hookname={hookname} />
+
+        {toUse === "" 
+        ? (<div></div>) 
+        : (<div className="w-full flex flex-col gap-4 px-6 lg:px-0 text-white">
+            <h1 className="text-4xl">▸Using <span className="text-[#62F983]"> {hookname} </span>customhook</h1>
+            <div
+              dangerouslySetInnerHTML={{ __html: serializedDescriptionTwo }}
+              className="text-lg text-[#8e8e8e]"
+            />
+          </div>
+         )}
+
+        {toUse === "" ? (<div></div>) : (<CodeSnippet primaryLang={toUseCode} hookname={toUse} />)}
       </div>
     );
+
   } catch (err) {
     console.log(err);
     return (

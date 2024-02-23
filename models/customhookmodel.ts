@@ -5,6 +5,9 @@ interface Hook {
  description: string;
  primarylang: string;
  secondarylang: string;
+ toUse: string; 
+ toUseDescription: string; 
+ toUseCode: string
 }
 
 interface HookDocument extends Hook, Document {}
@@ -25,6 +28,18 @@ const hookSchema = new Schema<HookDocument, HookModel>({
     required: true,
     unique: true,
  },
+ toUse: {
+   type: String,
+   unique: true,
+},
+toUseDescription: {
+   type: String,
+   unique: true,
+},
+toUseCode: {
+   type: String,
+   unique: true,
+},
 }, {
  timestamps: true,
 });
