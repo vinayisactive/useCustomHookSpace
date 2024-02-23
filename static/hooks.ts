@@ -1,1 +1,1 @@
-export const hooks = ["useDataAPI","useLocalStorage"];
+export const hooks = ["useDataAPI","useLocalStorage", "useInfiniteScroll"];
