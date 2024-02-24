@@ -5,7 +5,7 @@ import Image from "next/image";
 import uchslogo from "@/public/uchslogo.png";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import SearchButton from "./SearchButton/SearchButton";
+import SearchButton from "../SearchButton/SearchButton";
 
 const navData = [
     { navTo: "customhooks", child: "CustomHooks", id:585  },

@@ -8,7 +8,7 @@ const page = async ({ params }: { params: { slug: string } }) => {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ hookname: params?.slug }),
-      next: { revalidate: 0 },
+      next: { revalidate: 7200 },
     });
 
     if (!raw.ok) {
@@ -27,7 +27,7 @@ const page = async ({ params }: { params: { slug: string } }) => {
     const serializedDescriptionTwo = serialize(parsedDescriptionTwo);
 
     return (
-      <div className="w-full h-full text-white flex flex-col items-center gap-14 pt-14 overflow-y-scroll lg:pr-4 scroll-smooth pb-14">
+      <div className="w-full h-full text-white flex flex-col items-center gap-14 pt-6 overflow-y-scroll lg:pr-4 scroll-smooth pb-14">
         <div className="w-full flex flex-col gap-4 px-6 lg:px-0 text-white">
           <h1 className="text-4xl"> ▸{hookname}</h1>
           <div

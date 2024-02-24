@@ -28,7 +28,8 @@
   }
 
   .active2{
-    color: white
+    color: white;
+    border-left: 1px solid #62F983; 
   }
 
   .boldclass{

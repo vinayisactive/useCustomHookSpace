@@ -9,7 +9,7 @@ const Sidebar =  () => {
     const findRoute = router.split("/").at(2)
 
   return (
-    <div className="w-full h-[92vh] flex flex-col justify-between gap-3 text-white pb-5 ml-2 pt-14">
+    <div className="w-full h-[92vh] flex flex-col justify-between gap-3 text-white pb-5 ml-2 pt-10">
         <Link href={"/customhooks"}>
            <h1 className="text-xl hover:text-[#62F983] hover:pl-2 hover:scale-[10px] transition-all delay-50">All CustomHooks</h1>
         </Link>
@@ -18,7 +18,7 @@ const Sidebar =  () => {
         {hooks?.map((hook,i: any) => {
           return (
             <li className="text-[#ffffff9c] text-sm hover:text-[#62F983] hover:pl-2 hover:scale-[10px] transition-all delay-50 " key={`hook${i*5}`}>
-              <Link className={`${findRoute === `${hook}` ? "active2" : ""}`} href={`/customhooks/${hook}`}>
+              <Link className={`${findRoute === `${hook}` ? "active2 pl-2" : ""}`} href={`/customhooks/${hook}`}>
               {hook}
               </Link>
             </li>
