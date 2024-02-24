@@ -17,18 +17,9 @@ const page = async ({ params }: { params: { slug: string } }) => {
 
     const jsonData = await raw.json();
     const data = jsonData?.hook;
-    const {
-      hookname,
-      primarylang,
-      description,
-      toUseDescription,
-      toUse,
-      toUseCode,
-    } = data;
+    const { hookname, primarylang, description, toUseDescription, toUse, toUseCode } = data;
 
     
-
-
     const parsedDescriptionOne = parse(description);
     const serializedDescriptionOne = serialize(parsedDescriptionOne);
 

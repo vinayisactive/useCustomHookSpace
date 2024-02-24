@@ -18,7 +18,7 @@ export default function RootLayout({ children, }: Readonly<{ children: React.Rea
     <html lang="en">
       <body className={inter.className}>
         <div className="w-[100%] h-auto bg-black relative">
-          <div className="h-[8vh] w-[100%]">
+          <div className="h-[8vh] w-[100%] relative">
             <Navbar />
           </div>
 
