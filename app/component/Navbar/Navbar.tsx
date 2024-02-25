@@ -4,7 +4,7 @@ import React, {useState, useEffect} from "react";
 import Image from "next/image";
 import uchslogo from "@/public/uchslogo.png";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import SearchButton from "../SearchButton/SearchButton";
 import SearchModal from "../SearchModal/SearchModal";
 
@@ -16,9 +16,11 @@ const navData = [
 ]
 
 const Navbar = () => {
-  const router = usePathname();
-  const findRoute = router.split("/").at(1);
+  const route = usePathname();
+  const router = useRouter();
+  const findRoute = route.split("/").at(1);
   const [searchActive, setSearch] = useState(false)
+  
 
 
   
@@ -70,9 +72,9 @@ const Navbar = () => {
       </div>
 
 
-      <div className={`h-screen w-full absolute bg-[#00000096] top-0 left-0 z-[20] backdrop-blur-md justify-center items-center ${searchActive === true ? "flex" : "hidden"}`}>
+      <div className={`h-screen w-full absolute bg-[#000000b3] top-0 left-0 z-[20] backdrop-blur-md justify-center items-center ${searchActive === true ? "flex" : "hidden"}`}>
             <div className=" w-full h-full" onClick={() => setSearch(false)} ></div>
-            <SearchModal setSearch={setSearch} />
+            <SearchModal setSearch={setSearch} searchActive={searchActive} router={router} />
       </div>
     </div>
   );
