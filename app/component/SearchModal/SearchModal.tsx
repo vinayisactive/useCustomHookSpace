@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import { IoSearchOutline } from "react-icons/io5";
 import { hooks } from "@/static/hooks";
+import { GoArrowUpRight } from "react-icons/go";
 import Link from "next/link";
 
 const SearchModal = ({setSearch}: any) => {
@@ -37,7 +38,7 @@ const SearchModal = ({setSearch}: any) => {
                 <Link 
                     href={`/customhooks/${hook}`} className="flex items-center gap-2" 
                     onClick={() => setSearch(false)}>
-                  <span className="text-2xl group-hover:text-[#62F983] group-hover:ml-4 ">|</span> {hook} <span className=""> 🡥</span>
+                  <span className="text-2xl group-hover:text-[#62F983] group-hover:ml-4 ">|</span> {hook} <span className="text-lg"><GoArrowUpRight /></span>
                 </Link>
               </li>
             ))
