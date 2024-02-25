@@ -2,7 +2,7 @@
 import React from "react";
 import Link from "next/link";
 import { usePathname } from 'next/navigation'
-import { hooks } from "../../../Static/hooks";
+import { hooks } from "../../../static/hooks";
 
 const Sidebar =  () => {
     const router = usePathname();
