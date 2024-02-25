@@ -27,12 +27,12 @@ const page = async ({ params }: { params: { slug: string } }) => {
     const serializedDescriptionTwo = serialize(parsedDescriptionTwo);
 
     return (
-      <div className="w-full h-full text-white flex flex-col items-center gap-14 pt-6 overflow-y-scroll lg:pr-4 scroll-smooth pb-14">
-        <div className="w-full flex flex-col gap-4 px-6 lg:px-0 text-[#62F983]">
+      <div className="w-full h-full  flex flex-col items-center gap-14 overflow-y-scroll scroll-smooth text-white  pb-14 pt-6 lg:pr-4 ">
+        <div className="w-full flex flex-col gap-4 text-theme-green px-6 lg:px-0">
           <h1 className="text-4xl"> ▸{hookname}</h1>
           <div
             dangerouslySetInnerHTML={{ __html: serializedDescriptionOne }}
-            className="text-lg text-[#8e8e8e]"
+            className="text-lg text-desc-gray"
           />
         </div>
 
@@ -40,11 +40,11 @@ const page = async ({ params }: { params: { slug: string } }) => {
 
         {toUse === "" 
         ? (<div></div>) 
-        : (<div className="w-full flex flex-col gap-4 px-6 lg:px-0 text-white">
-            <h1 className="text-4xl">▸Using <span className="text-[#62F983]"> {hookname} </span>customhook</h1>
+        : (<div className="w-full flex flex-col gap-4 text-  px-6 lg:px-0">
+            <h1 className="text-4xl">▸Using <span className="text-theme-green"> {hookname} </span>customhook</h1>
             <div
               dangerouslySetInnerHTML={{ __html: serializedDescriptionTwo }}
-              className="text-lg text-[#8e8e8e]"
+              className="text-lg text-desc-gray"
            />
           </div>
          )}

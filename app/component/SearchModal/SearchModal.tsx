@@ -48,12 +48,12 @@ const SearchModal = ({ setSearch, searchActive, router }: any) => {
     }, [searchActive]);
 
     return (
-        <div className="absolute w-[80%] sm:w-[50%] lg:w-[35%] h-[60%] lg:h-[60%] rounded-lg bg-[#070707] flex flex-col justify-start items-center border border-[#aaaaaa40]">
-            <div className="flex justify-start items-center w-full text-white px-4">
+        <div className="absolute w-[80%] sm:w-[50%] lg:w-[35%] h-[60%] lg:h-[60%] flex flex-col justify-start items-center bg-modal-dark border border-gray-light rounded-lg">
+            <div className="w-full flex justify-start items-center text-white px-4">
                 <IoSearchOutline className="text-xl" />
                 <input
                     type="text"
-                    className="text-sm w-[80%] bg-transparent py-3 px-2 focus:outline-none"
+                    className="w-[80%] text-sm bg-transparent focus:outline-none py-3 px-2 "
                     placeholder="Search customhook here..."
                     onChange={(e) => setSearchTerm(e.target.value)}
                     ref={inputRef}
@@ -61,21 +61,21 @@ const SearchModal = ({ setSearch, searchActive, router }: any) => {
                 />
             </div>
 
-            <div className="border-t border-[#aaaaaa40] w-full h-[95%] flex flex-col gap-2">
+            <div className=" w-full h-[95%] flex flex-col gap-2 border-t border-gray-light ">
                 <div></div>
 
-                <div className="w-full h-full flex flex-col gap-1 items-start px-2 text-white">
+                <div className="w-full h-full flex flex-col items-start gap-1 text-white px-2">
                     {filteredData.length === 0 ? (
-                        <li className="flex h-full justify-center items-center gap-2 w-full">
+                        <li className="w-full h-full flex justify-center items-center gap-2 ">
                             {`No result found =( `}
                         </li>
                     ) : (
                         filteredData.map((hook, index) => (
-                            <li key={index} className={`flex items-center py-2 gap-2 hover:bg-[#2c2c2ca7] cursor-pointer w-full rounded-lg px-2 group ${index === hoverIndex ? "bg-[#2c2c2ca7] " : ""}`}
+                            <li key={index} className={` w-full flex items-center gap-2 rounded-lg cursor-pointer p-2 group ${index === hoverIndex ? "bg-hover-gray" : ""}`}
                                 onMouseEnter={() => setHoverIndex(index)}
                                 onMouseLeave={() => setHoverIndex(index)}>
                                 <Link href={`/customhooks/${hook}`} className="flex items-center gap-2" onClick={() => setSearch(false)}>
-                                    <span className={`text-2xl group-hover:text-[#62F983] group-hover:ml-4 ${index === hoverIndex ? "ml-4 text-[#62F983] " : ""}`}>|</span>{hook}<span className="text-lg"><GoArrowUpRight /></span>
+                                    <span className={`text-2xl group-hover:text-theme-green group-hover:ml-4 ${index === hoverIndex ? "ml-4 text-theme-green " : ""}`}>|</span>{hook}<span className="text-lg"><GoArrowUpRight /></span>
                                 </Link>
                             </li>
                         ))

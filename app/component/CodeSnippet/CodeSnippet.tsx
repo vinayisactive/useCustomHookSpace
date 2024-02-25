@@ -5,7 +5,7 @@ import Copytoclipboard from "./Buttons/Copytoclipboard";
 const CodeSnippet = ({ primaryLang, hookname }: any) => {
   return (
     <div className="w-[95%] lg:w-full bg-black rounded-xl">
-      <div className=" p-2 flex justify-between items-center bg-[#2b2b2b] rounded-lg text-white mb-1">
+      <div className="flex justify-between items-center bg-code-dark rounded-lg text-white mb-1 p-2">
         <p>▸ {hookname}</p>
 
         <div className=" flex justify-between items-center gap-1 text-sm ">

@@ -41,23 +41,23 @@ const Navbar = () => {
 
 
   return (
-    <div className=" w-full bg-[#0000007e] flex justify-between items-center px-6 lg:px-16 z-[1000] ">
+    <div className=" w-full flex justify-between items-center bg-blur-dark  px-6 lg:px-16 z-[1000] ">
       <div className=" w-1/2 md:w-1/3 flex justify-between items-center">
         <Link href="/">
           <div className="flex justify-start items-center">
             <Image priority src={uchslogo} alt="uchslogo" className="w-16" />
-            <h1 className=" hidden md:flex text-md md:text-lg lg:text-xl pb-1 text-white">
-              <span className="text-[#62F983]">Custom</span>HookSpace
+            <h1 className=" hidden md:flex text-md md:text-lg lg:text-xl text-white pb-1">
+              <span className="text-theme-green">Custom</span>HookSpace
             </h1>
           </div>
         </Link>
       </div>
 
       <div className="w-1/2 md:1/3 flex justify-center items-center">
-        <ul className="flex gap-5 items-center mt-1">
+        <ul className="flex items-center gap-5  mt-1">
           {navData.map((nav)=> {
               return (
-                <li className={`text-[#fbfbfbb3] text-lg hover:text-white`} key={nav.id}>
+                <li className={`text-lg text-inactive-gray  hover:text-white`} key={nav.id}>
                   <Link href={`/${nav.navTo}`} className={`${findRoute === `${nav.navTo}` ? "active" : ""}`}>{nav.child}</Link>
                 </li>
               )})}
@@ -72,7 +72,7 @@ const Navbar = () => {
       </div>
 
 
-      <div className={`h-screen w-full absolute bg-[#000000b3] top-0 left-0 z-[20] backdrop-blur-md justify-center items-center ${searchActive === true ? "flex" : "hidden"}`}>
+      <div className={`h-screen w-full absolute top-0 left-0 ${searchActive === true ? "flex" : "hidden"} justify-center items-center bg-blur-dark backdrop-blur-md  z-[20] `}>
             <div className=" w-full h-full" onClick={() => setSearch(false)} ></div>
             <SearchModal setSearch={setSearch} searchActive={searchActive} router={router} />
       </div>
