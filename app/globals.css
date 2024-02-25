@@ -3,22 +3,18 @@
 @tailwind utilities;
 
 
-/* width */
 ::-webkit-scrollbar {
     width: 1px;
   }  
   
-  /* Track */
   ::-webkit-scrollbar-track {
     background: #404040;
   }
   
-  /* Handle */
   ::-webkit-scrollbar-thumb {
     background: #aadab4;
   }
   
-  /* Handle on hover */
   ::-webkit-scrollbar-thumb:hover {
     background: #7e9984;
   }
@@ -30,9 +26,4 @@
   .active2{
     color: white;
     border-left: 1px solid #62F983; 
-  }
-
-  .boldclass{
-    color: white; 
-    font-size: 40px;  
   }

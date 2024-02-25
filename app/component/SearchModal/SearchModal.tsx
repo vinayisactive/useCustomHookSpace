@@ -1,5 +1,4 @@
 "use client";
-
 import React, { useState, useEffect, useRef } from "react";
 import { IoSearchOutline } from "react-icons/io5";
 import { hooks } from "@/static/hooks";
