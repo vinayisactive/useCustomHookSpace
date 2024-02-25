@@ -3,10 +3,7 @@ import { Manrope } from "next/font/google";
 import "./globals.css";
 import Navbar from './component/Navbar/Navbar'
 
-const inter = Manrope({
-  weight: '400',
-  subsets: ['latin'],
-})
+const inter = Manrope({ weight: '400', subsets: ['latin'] })
 
 export const metadata: Metadata = {
   title: "useCustomHookSpace",
