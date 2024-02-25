@@ -1,5 +1,5 @@
-import {customhooks} from "@/models/customhookmodel";
-import connectMongoDB from "@/libs/mongodbconnect";
+import {customhooks} from "@/Schema/CustomHookSchema";
+import connectMongoDB from "@/DBconnection/connectMongoDB";
 import { NextResponse, NextRequest  } from "next/server";
 
 export const POST  = async(request : NextRequest) => {
@@ -18,13 +18,13 @@ export const POST  = async(request : NextRequest) => {
     }
 }
 
-export const GET = async() => {
-    try {
-      await connectMongoDB();
-      const hooks = await customhooks.find();
+// export const GET = async() => {
+//     try {
+//       await connectMongoDB();
+//       const hooks = await customhooks.find();
   
-      return NextResponse.json({ data: hooks });
-    } catch (error) {
-      console.log(error);
-    }
-}
+//       return NextResponse.json({ data: hooks });
+//     } catch (error) {
+//       console.log(error);
+//     }
+// }

@@ -1,5 +1,5 @@
-import { customhooks } from "@/models/customhookmodel";
-import connectMongoDB from "@/libs/mongodbconnect";
+import { customhooks } from "@/Schema/CustomHookSchema";
+import connectMongoDB from "@/DBconnection/connectMongoDB";
 import { NextResponse, NextRequest } from "next/server";
 
 export const POST = async (request: NextRequest) => {
