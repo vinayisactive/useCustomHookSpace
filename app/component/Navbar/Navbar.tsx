@@ -6,6 +6,9 @@ import uchslogo from "@/public/uchslogo.png";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import SearchButton from "../SearchButton/SearchButton";
+import SearchModal from "../SearchModal/SearchModal";
+
+
 
 const navData = [
     { navTo: "customhooks", child: "CustomHooks", id:585  },
@@ -17,6 +20,8 @@ const Navbar = () => {
   const findRoute = router.split("/").at(1);
   const [searchActive, setSearch] = useState(false)
 
+
+  
   useEffect(() => {
     const handleKeyDown = (event : any) => {
       if (event.ctrlKey && event.key === 'k') {
@@ -34,7 +39,7 @@ const Navbar = () => {
 
 
   return (
-    <div className=" w-full bg-[#0000007e] flex justify-between items-center px-6 lg:px-16 z-[1000] relative ">
+    <div className=" w-full bg-[#0000007e] flex justify-between items-center px-6 lg:px-16 z-[1000] ">
       <div className=" w-1/2 md:w-1/3 flex justify-between items-center">
         <Link href="/">
           <div className="flex justify-start items-center">
@@ -65,9 +70,9 @@ const Navbar = () => {
       </div>
 
 
-      <div className={`h-screen w-full  absolute bg-[#00000096] top-0 left-0 z-[20] backdrop-blur-sm ${searchActive === true ? "flex" : "hidden"}`}
-        onClick={() => setSearch(false)} >
-
+      <div className={`h-screen w-full absolute bg-[#00000096] top-0 left-0 z-[20] backdrop-blur-md justify-center items-center ${searchActive === true ? "flex" : "hidden"}`}>
+            <div className=" w-full h-full" onClick={() => setSearch(false)} ></div>
+            <SearchModal setSearch={setSearch} />
       </div>
     </div>
   );
