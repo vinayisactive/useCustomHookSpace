@@ -7,10 +7,13 @@ import profilepicture from '../../../asserts/profilepicture.jpg'
 
 const BlogCard = async () => {
     try {
-        const raw = await fetch("https://usecustomhookspace.vercel.app/api/blog");
+        const raw = await fetch("http://localhost:3000/api/blog");
         const data = await raw.json();
         const parsedContent = parse(data?.content);
         const serializedContent = serialize(parsedContent);
+
+        console.log(data);
+        
 
         return (
             <div className=" md:hidden w-[95%] md:w-[70%] lg:w-[50%] xl:w-[35%] text-desc-gray flex flex-col gap-8 rounded-xl pt-2 pb-12 px-4 overflow-y-scroll scroll-smooth">
