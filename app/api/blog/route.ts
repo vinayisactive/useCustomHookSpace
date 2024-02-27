@@ -5,6 +5,7 @@ import { NextResponse, NextRequest } from "next/server";
 export const GET = async () => {
   try {
     await connectMongoDB();
+
     const blog = await BlogModel.findOne({"_id": "65de151ef4fb3346b523f22e"});
     return NextResponse.json(blog); 
   } catch (error) {

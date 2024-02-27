@@ -1,4 +1,4 @@
-import mongoose, { Document, Schema } from 'mongoose';
+import mongoose, { Document, Schema, Model } from 'mongoose';
 
 export interface IBlog extends Document {
   content: string;
@@ -8,7 +8,7 @@ export interface IBlog extends Document {
   poster_img: string;
 }
 
-const BlogSchema: Schema = new Schema({
+const BlogSchema: Schema = new Schema<IBlog>({
   content: { type: String, required: true },
   name: { type: String, required: true },
   poster: { type: String, required: true },
@@ -16,4 +16,6 @@ const BlogSchema: Schema = new Schema({
   poster_img: { type: String, required: true }
 });
 
-export const BlogModel = mongoose.model<IBlog>('Blog') || mongoose.model<IBlog>('Blog', BlogSchema);
+ export const BlogModel: Model<IBlog> = mongoose.models.Blog || mongoose.model<IBlog>('Blog', BlogSchema);
+
+

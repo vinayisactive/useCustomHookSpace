@@ -4,7 +4,6 @@ interface Hook {
  hookname: string;
  description: string;
  primarylang: string;
- secondarylang: string;
  toUse: string; 
  toUseDescription: string; 
  toUseCode: string
