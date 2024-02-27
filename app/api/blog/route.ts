@@ -6,7 +6,7 @@ export const GET = async () => {
   try {
     await connectMongoDB();
 
-    const blog = await BlogModel.findOne({"blogId": "mountUnmount"});
+    const blog = await BlogModel.find();
     return NextResponse.json(blog); 
   } catch (error) {
     return NextResponse.json({ error: error }, { status: 500 });
