@@ -8,11 +8,10 @@ import profilepicture from '../../../asserts/profilepicture.jpg'
 const BlogCard = async () => {
     try {
         const raw = await fetch("https://usecustomhookspace.vercel.app/api/blog");
-
-        const { name, content, mediumUrl } = await raw.json();
-        const parsedContent = parse(content);
+        const data = await raw.json();
+        const parsedContent = parse(data?.content);
         const serializedContent = serialize(parsedContent);
-                        
+
         return (
             <div className=" md:hidden w-[95%] md:w-[70%] lg:w-[50%] xl:w-[35%] text-desc-gray flex flex-col gap-8 rounded-xl pt-2 pb-12 px-4 overflow-y-scroll scroll-smooth">
                 <div className="h-[7vh] w-full flex justify-between items-center">
@@ -23,7 +22,7 @@ const BlogCard = async () => {
                     />
                     
                     <div className="flex justify-center items-center gap-3">
-                       <p className="text-desc-gray cursor-pointer text-[18px] hover:text-white"><a href={mediumUrl} target="_blank"> @vinayisactive</a></p>
+                       <p className="text-desc-gray cursor-pointer text-[18px] hover:text-white"><a href={data?.mediumUrl} target="_blank"> @vinayisactive</a></p>
                        <Image 
                            src={profilepicture} alt="pfp"
                            width={40} height={40}
@@ -33,7 +32,7 @@ const BlogCard = async () => {
                 </div>
 
                 <div className="flex flex-col justify-center items-center gap-6">
-                    <p className="text-white text-[28px] md:text-[32px] text-start ">{name}</p>
+                    <p className="text-white text-[28px] md:text-[32px] text-start ">{data?.name}</p>
                     <Image src={blogposter} alt="" width={680} height={50} className="rounded-lg"/>
                 </div>
 
