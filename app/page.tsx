@@ -1,4 +1,4 @@
-// import BlogCard from "./component/BlogCard/BlogCard";
+import BlogCard from "./component/BlogCard/BlogCard";
 
 const Home = () => {
   return (
@@ -6,7 +6,7 @@ const Home = () => {
       <h1 className="hidden md:flex">use<span className='text-theme-green'>Custom</span>HookSpace</h1>
       <h1 className='text-lg hidden md:flex'>coming soon...</h1>
 
-      {/* <BlogCard />  */}
+      <BlogCard /> 
     </div>
   );
 };
