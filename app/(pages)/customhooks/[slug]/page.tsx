@@ -4,7 +4,7 @@ import { parse, serialize } from "parse5";
 
 const page = async ({ params }: { params: { slug: any } }) => {
   try {    
-    const raw = await fetch("http://localhost:3000/api/hook", {  
+    const raw = await fetch("https://usecustomhookspace.vercel.app/api/hook", {  
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ hookname: params?.slug }),  
