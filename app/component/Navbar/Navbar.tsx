@@ -41,11 +41,11 @@ const Navbar = () => {
 
 
   return (
-    <div className=" w-full flex justify-between items-center bg-blur-dark  px-6 lg:px-16 z-[1000] ">
+    <div className=" w-full flex justify-between items-center bg-blur-dark  px-6 lg:px-16 z-[1000] pt-3 ">
       <div className=" w-1/2 md:w-1/3 flex justify-between items-center">
         <Link href="/">
           <div className="flex justify-start items-center">
-          <Image src={uchslogo} alt="uchslogo" width={64} height={64} className="w-16" />
+          {/* <Image src={uchslogo} alt="uchslogo" width={64} height={64} className="w-16" /> */}
             <h1 className=" hidden md:flex text-md md:text-lg lg:text-xl text-white pb-1">
               use<span className="text-theme-green">Custom</span>HookSpace
             </h1>
