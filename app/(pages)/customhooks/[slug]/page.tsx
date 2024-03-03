@@ -1,21 +1,23 @@
 import React from "react";
 import CodeSnippet from "@/app/component/CodeSnippet/CodeSnippet";
 import { parse, serialize } from "parse5";
-import axios from "axios";
 
-const page = async ({ params }: { params: { slug: string } }) => {
-  try {
-    const raw = await axios.get(`/api/hook?slug=${params.slug}`);  
+const page = async ({ params }: { params: { slug: any } }) => {
+  try {    
+    const raw = await fetch("http://localhost:3000/api/hook", {  
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ hookname: params?.slug }),  
+      next: { revalidate: 7200 },
+    });
 
-    // if (!raw.ok) {
-    //   throw new Error(`Failed to fetch hook: ${raw.statusText}`);
-    // }
+    if (!raw.ok) {
+      throw new Error(`Failed to fetch hook: ${raw.statusText}`);
+    }
 
-    // const jsonData = await raw.json();
-    // const data = jsonData?.hook;
-    const { hookname, primarylang, description, toUseDescription, toUse, toUseCode } = raw.data;
-    console.log(raw.data);
-    
+    const jsonData = await raw.json();
+    const data = jsonData?.hook;
+    const { hookname, primarylang, description, toUseDescription, toUse, toUseCode } = data;
 
     
     const parsedDescriptionOne = parse(description);
@@ -36,7 +38,7 @@ const page = async ({ params }: { params: { slug: string } }) => {
 
         <CodeSnippet primaryLang={primarylang} hookname={hookname} />
 
-        {toUse &&
+        {toUseDescription &&
          <div className="w-full flex flex-col gap-4 text-  px-6 lg:px-0">
             <h1 className="text-4xl">▸Using <span className="text-theme-green"> {hookname} </span>customhook</h1>
             <div
@@ -46,7 +48,7 @@ const page = async ({ params }: { params: { slug: string } }) => {
           </div>
          }
 
-        {toUse && <CodeSnippet primaryLang={toUseCode} hookname={toUse} />}
+        {toUseCode && <CodeSnippet primaryLang={toUseCode} hookname={toUse} />}
       </div>
     );
 
