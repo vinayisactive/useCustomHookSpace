@@ -8,7 +8,7 @@ const MainBanner = () => {
         <Banner/>
         </div>
 
-        <div className="absolute bottom-0 inset-x-0 h-[60%] bg-gradient-to-t from-neutral-900 to-transparent"></div>
+        <div className="absolute bottom-0 inset-x-0 h-[60%] bg-gradient-to-t from-[#050505] via-[#000000a9] to-transparent"></div>
       </div>
   )
 }

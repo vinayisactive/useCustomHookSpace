@@ -2,7 +2,7 @@
 
 import React, {useState, useEffect} from "react";
 import Image from "next/image";
-import uchslogo from "@/public/uchslogo.png";
+import uchslogo from '../../../public/uchslogo.png'
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import SearchButton from "../SearchButton/SearchButton";
@@ -45,16 +45,16 @@ const Navbar = () => {
       <div className=" w-1/2 md:w-1/3 flex justify-between items-center">
         <Link href="/">
           <div className="flex justify-start items-center">
-            <Image priority src={uchslogo} alt="uchslogo" className="w-16" />
+          <Image src={uchslogo} alt="uchslogo" width={64} height={64} className="w-16" />
             <h1 className=" hidden md:flex text-md md:text-lg lg:text-xl text-white pb-1">
-              <span className="text-theme-green">Custom</span>HookSpace
+              use<span className="text-theme-green">Custom</span>HookSpace
             </h1>
           </div>
         </Link>
       </div>
 
       <div className="w-1/2 md:1/3 flex justify-center items-center">
-        <ul className="flex items-center gap-5  mt-1">
+        <ul className="flex items-center gap-5">
           {navData.map((nav)=> {
               return (
                 <li className={`text-lg text-inactive-gray  hover:text-white`} key={nav.id}>
@@ -65,7 +65,7 @@ const Navbar = () => {
       </div>
 
 
-      <div className=" w-1/3 flex justify-end items-center text-white pt-2 ">
+      <div className=" w-1/3 flex justify-end items-center text-white">
         <div onClick={() => setSearch(searchActive === true? false : true)}>
            <SearchButton/>
         </div>
