@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { hooks } from "../../../static/hooks";
-import ListingCard from '../../component/ListingCards/ListingCards'
+import ListingCards from '../../component/ListingCards/ListingCards'
 
 const page = () => {
   return (
@@ -8,7 +8,7 @@ const page = () => {
       <div className="w-full flex sm:flex-col md:flex-row flex-wrap justify-center items-center lg:justify-start gap-7 py-6">
         {hooks?.map((hook: any) => {
           return (
-              <ListingCard hook={hook} key={hook}/>
+              <ListingCards hook={hook} key={hook}/>
           )})}
       </div>
     </div>
