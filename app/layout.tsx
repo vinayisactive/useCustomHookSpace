@@ -7,7 +7,7 @@ const inter = Manrope({ weight: '400', subsets: ['latin'] })
 
 export const metadata: Metadata = {
   title: "useCustomHookSpace",
-  description: "hehe enough information for now",
+  description: "say 'so long' to non-modular code! explore custom hooks and helpers at useCustomHookSpace.",
 };
 
 export default function RootLayout({ children, }: Readonly<{ children: React.ReactNode; }>) {
