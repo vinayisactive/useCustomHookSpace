@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { hooks } from "@/static/hooks";
+import { hooks } from "../../../static/hooks";
 import ListingCard from '../../component/ListingCards/ListingCards'
 
 const page = () => {
