@@ -55,7 +55,7 @@ const Navbar = () => {
 
       <div className="w-1/2 md:1/3 flex justify-center items-center">
         <ul className="flex items-center gap-5">
-          {navData.map((nav)=> {
+          {navData.map((nav : any)=> {
               return (
                 <li className={`text-lg text-inactive-gray  hover:text-white`} key={nav.id}>
                   <Link href={`/${nav.navTo}`} className={`${findRoute === `${nav.navTo}` ? "active" : ""}`}>{nav.child}</Link>

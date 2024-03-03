@@ -2,15 +2,12 @@ import { customhooks } from "@/Schema/CustomHookSchema";
 import connectMongoDB from "@/DBconnection/connectMongoDB";
 import { NextResponse, NextRequest } from "next/server";
 
-export const GET = async (request: NextRequest) => {
+export const POST = async (request: NextRequest) => {
   try {
     await connectMongoDB();
-    const id = request.nextUrl.searchParams.get("slug")!;
-    console.log(id ? id : "hello im route");
+    const { hookname } = await request.json();
     
-    const hook = await customhooks.findOne({ "hookname": id});
-    console.log(hook);
-    
+    const hook = await customhooks.findOne({ "hookname": hookname });
     return NextResponse.json({ hook: hook}); 
   } catch (error) {
     return NextResponse.json({ error: error }, { status: 500 });

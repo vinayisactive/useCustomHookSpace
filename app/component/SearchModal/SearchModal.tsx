@@ -70,7 +70,7 @@ const SearchModal = ({ setSearch, searchActive, router }: any) => {
                             {`No result found =( `}
                         </li>
                     ) : (
-                        filteredData.map((hook, index) => (
+                        filteredData.map((hook : any, index : any) => (
                             <li key={index} className={` w-full flex items-center gap-2 rounded-lg cursor-pointer p-2 group ${index === hoverIndex ? "bg-hover-gray" : ""}`}
                                 onMouseEnter={() => setHoverIndex(index)}
                                 onMouseLeave={() => setHoverIndex(index)}>

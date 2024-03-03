@@ -13,7 +13,7 @@ const Banner = () => {
     
     return (
         <div className="bg-black -rotate-[25deg] scale-[1.5] overflow-hidden -mt-24 flex flex-col gap-1">
-          {Array.from({ length: 20 }).map((_, index) => (
+          {Array.from({ length: 20 }).map((_ : any, index:any) => (
             <div key={index} className="flex items-center gap-3 overflow-hidden">
               {index % 2 === 0 ? renderButtons(ButtonArr) : renderButtons(ButtonArrTwo)}
             </div>
