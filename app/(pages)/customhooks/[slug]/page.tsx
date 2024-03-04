@@ -11,7 +11,7 @@ const page = async ({ params }: { params: { slug: any } }) => {
       next: { revalidate: 7200 },
     });
 
-    if (!raw.ok) {
+    if (!raw.ok) { 
       throw new Error(`Failed to fetch hook: ${raw.statusText}`);
     }
 

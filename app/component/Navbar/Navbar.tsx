@@ -54,7 +54,7 @@ const Navbar = () => {
       </div>
 
       <div className="w-1/2 md:1/3 flex justify-center items-center">
-        <ul className="flex items-center gap-5">
+        <ul className="flex items-center gap-3 md:gap-5">
           {navData.map((nav : any)=> {
               return (
                 <li className={`text-lg text-inactive-gray  hover:text-white`} key={nav.id}>
@@ -65,7 +65,7 @@ const Navbar = () => {
       </div>
 
 
-      <div className=" w-1/3 flex justify-end items-center text-white">
+      <div className=" w-1/3 flex justify-end items-center text-white ml-3">
         <div onClick={() => setSearch(searchActive === true? false : true)}>
            <SearchButton/>
         </div>
