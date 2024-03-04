@@ -2,7 +2,6 @@
 
 import React, {useState, useEffect} from "react";
 import Image from "next/image";
-import uchslogo from '../../../public/uchslogo.png'
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import SearchButton from "../SearchButton/SearchButton";
@@ -11,6 +10,7 @@ import SearchModal from "../SearchModal/SearchModal";
 
 
 const navData = [
+    { navTo: "", child: "Home", id:560  },
     { navTo: "customhooks", child: "CustomHooks", id:585  },
     { navTo: "about", child: "About", id:545  }
 ]
@@ -44,8 +44,8 @@ const Navbar = () => {
     <div className=" w-full flex justify-between items-center bg-blur-dark  px-6 lg:px-16 z-[1000]">
       <div className=" w-1/2 md:w-1/3 flex justify-between items-center">
         <Link href="/">
-          <div className="flex justify-start items-center">
-          {/* <Image src={uchslogo} alt="uchslogo" width={64} height={64}  /> */}
+          <div className="flex justify-start items-center gap-2">
+          <Image src={"https://res.cloudinary.com/dbs9ulw2r/image/upload/v1709561122/n5kdrlwz1bmavs2n2ajh.png"} alt="uchslogo" width={40} height={40}  />
             <h1 className=" hidden md:flex text-md md:text-lg lg:text-xl text-white pb-1">
               use<span className="text-theme-green">Custom</span>HookSpace           
             </h1>

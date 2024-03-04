@@ -19,7 +19,7 @@ export default function RootLayout({ children, }: Readonly<{ children: React.Rea
             <Navbar />
           </div>
 
-          <div className="h-[92vh]">
+          <div className="h-[auto] w-full">
             {children}
           </div>
         </div>

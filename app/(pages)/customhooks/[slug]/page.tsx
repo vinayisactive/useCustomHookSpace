@@ -56,7 +56,7 @@ const page = async ({ params }: { params: { slug: any } }) => {
     console.log(err);
     return (
       <div className=" w-full h-full flex justify-center items-center text-3xl text-white">
-        Oops! maybe your internet..
+        {params.slug} hook is coming soon...
       </div>
     );
   }
