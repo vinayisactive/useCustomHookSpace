@@ -14,34 +14,34 @@ interface HookModel extends Model<HookDocument> {}
 
 const hookSchema = new Schema<HookDocument, HookModel>({
  hookname: {
+     type: String,
+     required: true,
+     unique: true,
+  },
+  description: {
+     type: String,
+     required: true,
+  },
+  primarylang: {
+     type: String,
+     required: true,
+     unique: true,
+  },
+  toUse: {
     type: String,
-    required: true,
     unique: true,
  },
- description: {
+ toUseDescription: {
     type: String,
-    required: true,
- },
- primarylang: {
-    type: String,
-    required: true,
     unique: true,
  },
- toUse: {
-   type: String,
-   unique: true,
-},
-toUseDescription: {
-   type: String,
-   unique: true,
-},
-toUseCode: {
-   type: String,
-   unique: true,
-},
-}, {
- timestamps: true,
-});
+ toUseCode: {
+    type: String,
+    unique: true,
+ },
+ }, {
+  timestamps: true,
+ });
 
 
 export const customhooks = mongoose.models.customhooks || mongoose.model("customhooks", hookSchema);
