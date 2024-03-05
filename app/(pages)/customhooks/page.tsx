@@ -1,5 +1,5 @@
 import { hooks } from "../../../static/hooks";
-import ListingCards from '../../component/ListingCards/ListingCards'
+import { ListingCards } from '@/app/component/index'
 
 const page = () => {
   return (

@@ -1,15 +1,22 @@
 import React from "react";
-import CodeSnippet from "@/app/component/CodeSnippet/CodeSnippet";
+import { CodeSnippet } from '@/app/component/index'
 import parseAndSerialize from "@/Helpers/parseAndSerialize";
+import { hooks } from "@/static/hooks";
 
+export function generateStaticParams() {
+ return hooks.map((slug) => {
+    return{
+      slug
+    }
+  })
+}
 
 const page = async ({ params }: { params: { slug: any } }) => {
   try {    
     const raw = await fetch("https://usecustomhookspace.vercel.app/api/hook", {  
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ hookname: params?.slug }),  
-      next: { revalidate: 0 },
+      body: JSON.stringify({ hookname: params?.slug }),
     });
 
     if (!raw.ok) { 

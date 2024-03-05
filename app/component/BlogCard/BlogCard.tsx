@@ -9,7 +9,7 @@ const BlogCard = ({ post } : any) => {
        
         <Image src={post.coverImageUrl} width={250} height={250} alt={post.title} loading="lazy" className="rounded-lg"/>
 
-        <div>
+        <div className="flex flex-col gap-2">
           <h2 className="text-white text-xl">{post.title}</h2>
             <div className="flex items-center text-white">
               <Image src={post.authorImageUrl} width={30} height={30} alt={post.authorName}/>
