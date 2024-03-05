@@ -1,7 +1,7 @@
 "use client";
 import React, { useState, useEffect, useRef } from "react";
 import { IoSearchOutline } from "react-icons/io5";
-import { hooks } from "../../../Static/hooks";
+import { hooks } from "../../../static/hooks";
 import { GoArrowUpRight } from "react-icons/go";
 import Link from "next/link";
 
