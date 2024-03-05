@@ -1,6 +1,7 @@
 import React from "react";
 import CodeSnippet from "@/app/component/CodeSnippet/CodeSnippet";
-import { parse, serialize } from "parse5";
+import parseAndSerialize from "@/Helpers/parseAndSerialize";
+
 
 const page = async ({ params }: { params: { slug: any } }) => {
   try {    
@@ -8,23 +9,19 @@ const page = async ({ params }: { params: { slug: any } }) => {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ hookname: params?.slug }),  
-      next: { revalidate: 7200 },
+      next: { revalidate: 0 },
     });
 
     if (!raw.ok) { 
       throw new Error(`Failed to fetch hook: ${raw.statusText}`);
     }
 
-    const jsonData = await raw.json();
-    const data = jsonData?.hook;
-    const { hookname, primarylang, description, toUseDescription, toUse, toUseCode } = data;
+    const data = await raw.json();
+    const hookData = data?.hook;
+    const { hookname, primarylang, description, toUseDescription, toUse, toUseCode } = hookData;
 
-    
-    const parsedDescriptionOne = parse(description);
-    const serializedDescriptionOne = serialize(parsedDescriptionOne);
-
-    const parsedDescriptionTwo = parse(toUseDescription);
-    const serializedDescriptionTwo = serialize(parsedDescriptionTwo);
+    const serializedDescriptionOne = parseAndSerialize(description);
+    const serializedDescriptionTwo = parseAndSerialize(toUseDescription);
 
     return (
       <div className="w-full h-full  flex flex-col items-center gap-14 overflow-y-scroll scroll-smooth text-white  pb-14 pt-6 lg:pr-4 ">

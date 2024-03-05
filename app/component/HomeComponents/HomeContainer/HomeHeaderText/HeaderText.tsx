@@ -1,5 +1,5 @@
 import React from 'react'
-import ListDot from '../ListDot/ListDot'
+import ListDot from './ListDot/ListDot'
 import { IoIosArrowForward } from "react-icons/io";
 import Link from 'next/link'
 

@@ -1,10 +1,10 @@
-import { customhooks } from "@/Schema/CustomHookSchema";
-import connectMongoDB from "@/DBconnection/connectMongoDB";
+import { customhooks } from "@/dbUtilites/uCHSchema";
+import dbconnect from "@/dbUtilites/dbconnect";
 import { NextResponse, NextRequest } from "next/server";
 
 export const POST = async (request: NextRequest) => {
   try {
-    await connectMongoDB();
+    await dbconnect();
     const { hookname } = await request.json();
     
     const hook = await customhooks.findOne({ "hookname": hookname });

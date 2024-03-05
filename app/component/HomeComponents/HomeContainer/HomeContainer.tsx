@@ -1,30 +1,30 @@
 import React from "react";
-import Background from "./Background/Background";
-import HeaderText from "./HeaderText/HeaderText";
-import BlogCard from "../BlogCard/BlogCard";
+import Background from "./HomeBackground/Background";
+import HeaderText from "./HomeHeaderText/HeaderText";
+import BlogCard from "../../BlogCard/BlogCard";
+import { blog } from "@/Static/blog";
+import { ButtonArr, ButtonArrTwo } from "@/Static/btns";
+import GradientBar from "./HomeGradientBar/GradientBar";
 
 
 const HomeContainer = () => {
   return (
-    <div className="w-[100%] h-[92vh] overflow-hidden relative flex flex-col justify-center items-center">
-      <div className="z-10 w-full relative">
-        <Background />
+    <div className="relative w-full h-full flex flex-col justify-center items-center overflow-hidden  ">
+      <div className="">
+        <Background ButtonArr={ButtonArr} ButtonArrTwo={ButtonArrTwo} />
       </div>
 
-      <div className="absolute top-0 inset-x-0 h-[60%] bg-gradient-to-b from-black via-via-dark to-end-dark z-30">
-      </div>
+      <GradientBar />
 
-      <div className="h-[50%] w-full absolute top-0 flex justify-start items-start pt-16 xl:pt-20 sm:justify-center z-40">
-        <div className=" sm:w-[70%] lg:w-[60%] xl:w-[50%] lg:h-1/2 flex justify-center items-center">
+      <div className="h-1/2 w-full absolute top-0 flex justify-start sm:justify-center items-start z-40 pt-16 xl:pt-20">
+        <div className=" sm:w-[70%] lg:w-[60%] xl:w-1/2 lg:h-1/2 flex justify-center items-center">
           <HeaderText />
         </div>
       </div>
 
-      <div className="hidden sm:flex absolute sm:bottom-48 lg:bottom-28 z-30 justify-center items-center">
-          <BlogCard />
+      <div className="hidden absolute sm:bottom-48 lg:bottom-28 sm:flex justify-center items-center z-30">
+          <BlogCard post={blog} />
       </div>
-
-
     </div>
   );
 };
