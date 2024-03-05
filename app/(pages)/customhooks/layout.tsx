@@ -10,7 +10,7 @@ export default async function CustomhookpageLayout({
             <div className="h-full  2xl:w-[20%] xl:w-[20%] lg:w-[20%] hidden lg:flex fixed left-14">
                 <Sidebar />
             </div>
-            <div className=" w-full xl:w-[77%] 2xl:w-[78%] lg:w-[75%] scroll-smooth px-2 pt-4">
+            <div className=" w-full h-full xl:w-[77%] 2xl:w-[78%] lg:w-[75%] scroll-smooth px-2 pt-4">
                 {children}
             </div>
         </div>

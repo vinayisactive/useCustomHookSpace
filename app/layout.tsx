@@ -14,8 +14,8 @@ export default function RootLayout({ children, }: Readonly<{ children: React.Rea
   return (
     <html lang="en">
       <body className={inter.className}>
-        <div className=" h-[100vh] bg-black relative">
-          <div className="h-[8vh] w-full relative flex justify-center items-center">
+        <div className="h-[100vh] bg-black relative">
+          <div className="h-[8vh] w-[100%] relative flex justify-center items-center">
             <Navbar />
           </div>
 

@@ -9,7 +9,7 @@ import GradientBar from "./HomeGradientBar/GradientBar";
 
 const HomeContainer = () => {
   return (
-    <div className="relative w-full h-full flex flex-col justify-center items-center overflow-hidden  ">
+    <div className="relative w-full h-[92vh] flex flex-col justify-center items-center overflow-hidden  ">
       <div className="">
         <Background ButtonArr={ButtonArr} ButtonArrTwo={ButtonArrTwo} />
       </div>
