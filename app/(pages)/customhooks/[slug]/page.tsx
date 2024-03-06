@@ -21,7 +21,7 @@ interface PageParams {
 
 
 export function generateStaticParams() {
- return hooks.map((slug) => {
+ return hooks.map((slug : string) => {
     return{
       slug
     }
@@ -34,7 +34,6 @@ const page = async({ params }: PageParams): Promise<JSX.Element> => {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ hookname: params?.slug }),
-      next: {revalidate: 0}
     });
 
     if (!raw.ok) { 
