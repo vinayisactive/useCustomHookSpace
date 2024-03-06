@@ -40,6 +40,7 @@ const Navbar = () => {
 
   return (
     <div className=" w-full flex justify-between items-center bg-blur-dark  px-6 lg:px-16 z-[1000]">
+
       <div className=" w-1/3 md:w-1/3 flex justify-between items-center">
         <Link href="/">
           <div className="flex justify-start items-center gap-2 -ml-4">
@@ -58,7 +59,7 @@ const Navbar = () => {
                 <li className={`text-lg text-inactive-gray  hover:text-white`} key={nav.id}>
                   <Link href={`/${nav.navTo}`} className={`${findRoute === `${nav.navTo}` ? "active" : ""}`}>{nav.child}</Link>
                 </li>
-              )})}
+             )})}
 
             <Link 
               href={"https://twitter.com/vinayisactive"} 

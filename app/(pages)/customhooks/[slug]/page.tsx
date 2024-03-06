@@ -34,6 +34,7 @@ const page = async({ params }: PageParams): Promise<JSX.Element> => {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ hookname: params?.slug }),
+      next: {revalidate: 7200}
     });
 
     if (!raw.ok) { 

@@ -1,1 +1,1 @@
-export const hooks = ["useDataAPI","useLocalStorage", "useInfiniteScroll", "useCurrentLocation", "useRealTimeLocation" ];
+export const hooks = ["useDataAPI","useLocalStorage", "useInfiniteScroll", "useCurrentLocation", "useRealTimeLocation","useInternetConnection" ];

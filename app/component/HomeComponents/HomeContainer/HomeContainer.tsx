@@ -22,7 +22,7 @@ const HomeContainer = () => {
         </div>
       </div>
 
-      <div className="hidden absolute sm:bottom-48 lg:bottom-28 sm:flex justify-center items-center z-30">
+      <div className="absolute bottom-56 sm:bottom-48 lg:bottom-28 flex justify-center items-center z-30">
           <BlogCard blog={blog} />
       </div>
     </div>
