@@ -1,6 +1,4 @@
-import { FC } from 'react';
-
-const Loading: FC = () => {
+const Loading = () => {
   return (
     <div className="h-full w-full flex flex-col gap-10 bg-black pt-14 lg:pr-4 ">
       <div className="h-[40%] w-full relative overflow-hidden rounded-lg">

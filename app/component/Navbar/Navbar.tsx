@@ -5,13 +5,14 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import {SearchModal, SearchButton} from '../index'
+import { navItems } from "@/static/navItems";
 
+interface navItemsTypes {
+  navTo: string,
+  id: number,
+  child: string
+}
 
-const navData = [
-    { navTo: "", child: "Home", id:560  },
-    { navTo: "customhooks", child: "CustomHooks", id:585  },
-    { navTo: "about", child: "About", id:545  }
-]
 
 const Navbar = () => {
   const route = usePathname();
@@ -19,8 +20,6 @@ const Navbar = () => {
   const findRoute = route.split("/").at(1);
   const [searchActive, setSearch] = useState(false)
   
-
-
   
   useEffect(() => {
     const handleKeyDown = (event : any) => {
@@ -53,7 +52,7 @@ const Navbar = () => {
 
       <div className="w-1/2 md:1/3 flex justify-center items-center">
         <ul className="flex items-center gap-3 md:gap-5">
-          {navData.map((nav : any)=> {
+          {navItems.map((nav : navItemsTypes)=> {
               return (
                 <li className={`text-lg text-inactive-gray  hover:text-white`} key={nav.id}>
                   <Link href={`/${nav.navTo}`} className={`${findRoute === `${nav.navTo}` ? "active" : ""}`}>{nav.child}</Link>

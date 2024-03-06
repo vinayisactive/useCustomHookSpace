@@ -1,11 +1,18 @@
 "use client";
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, FC } from "react";
 import { IoSearchOutline } from "react-icons/io5";
 import { hooks } from "../../../static/hooks";
 import { GoArrowUpRight } from "react-icons/go";
 import Link from "next/link";
 
-const SearchModal = ({ setSearch, searchActive, router }: any) => {
+interface SearchModalProps{
+    setSearch: any,
+    searchActive : boolean,
+    router : any
+}
+
+
+const SearchModal : React.FC<SearchModalProps> = ({ setSearch, searchActive, router }) => {
 
     const inputRef = useRef<HTMLInputElement>(null);
 
@@ -70,7 +77,7 @@ const SearchModal = ({ setSearch, searchActive, router }: any) => {
                             {`No result found =( `}
                         </li>
                     ) : (
-                        filteredData.map((hook : any, index : any) => (
+                        filteredData.map((hook : string, index : number) => (
                             <li key={index} className={` w-full flex items-center gap-2 rounded-lg cursor-pointer p-2 group ${index === hoverIndex ? "bg-hover-gray" : ""}`}
                                 onMouseEnter={() => setHoverIndex(index)}
                                 onMouseLeave={() => setHoverIndex(index)}>

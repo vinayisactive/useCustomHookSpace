@@ -1,6 +1,6 @@
 import { parse, serialize } from "parse5";
 
-const parseAndSerialize = (htmlString : any) => {
+const parseAndSerialize = (htmlString : string) => {
     const parsedHtml = parse(htmlString);
     return serialize(parsedHtml);
   }

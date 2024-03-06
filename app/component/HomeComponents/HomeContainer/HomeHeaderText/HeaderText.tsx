@@ -1,9 +1,9 @@
 import React from 'react'
 import ListDot from './ListDot/ListDot'
 import { IoIosArrowForward } from "react-icons/io";
+import { instructions } from '@/static/instructions';
 import Link from 'next/link'
 
-const instructions = ["Copy-Paste", "Import", "Use hook in code"]
 
 const HeaderText = () => {
     return (
@@ -14,7 +14,7 @@ const HeaderText = () => {
                 , turning complexity into simplicity!</p>
             
                 <ul className=' flex justify-center items-center gap-4 sm:gap-6'>
-                    {instructions.map((instruction) => {
+                    {instructions.map((instruction : string) => {
                          return <li key={instruction} className='flex justify-center items-center gap-2 text-sm lg:text-lg'><ListDot /> {instruction}</li>})}
                 </ul>
 

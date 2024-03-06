@@ -1,10 +1,13 @@
 "use client"
+import React from 'react'
 import { FiCopy } from "react-icons/fi";
 import { copyToClipboard } from "../Utilities/copyToClipboard";
 
-import React from 'react'
+interface copyToClipboardProps {
+  primaryLang : string
+}
 
-const Copytoclipboard = ({primaryLang}: any) => {
+const Copytoclipboard: React.FC<copyToClipboardProps> = ({primaryLang}) => {
   return (
     <button 
     className="px-2 transition-transform duration-300 ease-in-out transform hover:scale-150"

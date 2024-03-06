@@ -2,18 +2,30 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 
-const BlogCard = ({ post } : any) => {
+interface Blog {
+  url: string;
+  coverImageUrl: string;
+  title: string;
+  authorImageUrl: string;
+  authorName: string;
+}
+
+interface BlogCardProps {
+  blog: Blog;
+}
+
+const BlogCard : React.FC<BlogCardProps> = ({ blog }) => {
   return (
-    <Link href={post.url} target="_blank" rel="noopener noreferrer">
+    <Link href={blog.url} target="_blank" rel="noopener noreferrer">
       <div className="border max-h-[160px] sm:max-w-[500px] lg:max-w-[600px] flex justify-center items-center gap-3 p-2 rounded-xl border-gray-500 bg-blur-dark backdrop-blur-sm">
        
-        <Image src={post.coverImageUrl} width={250} height={250} alt={post.title} loading="lazy" className="rounded-lg"/>
+        <Image src={blog.coverImageUrl} width={250} height={250} alt={blog.title} loading="lazy" className="rounded-lg"/>
 
         <div className="flex flex-col gap-2">
-          <h2 className="text-white text-xl">{post.title}</h2>
+          <h2 className="text-white text-xl">{blog.title}</h2>
             <div className="flex items-center text-white">
-              <Image src={post.authorImageUrl} width={30} height={30} alt={post.authorName}/>
-              <p className="text-desc-gray">{post.authorName}</p>
+              <Image src={blog.authorImageUrl} width={30} height={30} alt={blog.authorName}/>
+              <p className="text-desc-gray">{blog.authorName}</p>
             </div>
         </div>
 

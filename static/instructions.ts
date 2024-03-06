@@ -1,0 +1,1 @@
+export const instructions = ["Copy the hook", "Paste in file", "Import and use"]
