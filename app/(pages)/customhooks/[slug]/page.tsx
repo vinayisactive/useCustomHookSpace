@@ -38,7 +38,7 @@ const page = async({ params }: PageParams): Promise<JSX.Element> => {
     });
 
     if (!raw.ok) { 
-      throw new Error(`Failed to fetch hook: ${raw.statusText}`);
+      throw new Error(`Failed to fetch hook: ${raw.statusText}`); 
     }
 
     const data = await raw.json();
@@ -55,8 +55,11 @@ const page = async({ params }: PageParams): Promise<JSX.Element> => {
 
     return (
       <div className="w-full h-full  flex flex-col items-center gap-14 overflow-y-scroll scroll-smooth text-white  pb-14 pt-6 lg:pr-4 ">
+
         <div className="w-full flex flex-col gap-4 text-theme-green px-6 lg:px-0">
-          <h1 className="text-4xl"> ▸{hookname}</h1>
+          <h1 className="text-2xl lg:text-4xl">
+             ▸{hookname}
+          </h1>
           <div
             dangerouslySetInnerHTML={{ __html: serializedDescriptionOne }}
             className="text-lg text-desc-gray"
@@ -65,17 +68,19 @@ const page = async({ params }: PageParams): Promise<JSX.Element> => {
 
         <CodeSnippet primaryLang={primarylang} hookname={hookname} />
 
-        {toUseDescription &&
+
          <div className="w-full flex flex-col gap-4 text-  px-6 lg:px-0">
-            <h1 className="text-4xl">▸Using <span className="text-theme-green"> {hookname} </span>customhook</h1>
+            <h1 className="text-2xl lg:text-4xl">
+              ▸Using <span className="text-theme-green"> {hookname} </span>customhook
+            </h1>
             <div
               dangerouslySetInnerHTML={{ __html: serializedDescriptionTwo }}
               className="text-lg text-desc-gray"
            />
           </div>
-         }
+         
+        <CodeSnippet primaryLang={toUseCode} hookname={toUse} />
 
-        {toUseCode && <CodeSnippet primaryLang={toUseCode} hookname={toUse} />}
       </div>
     );
 
