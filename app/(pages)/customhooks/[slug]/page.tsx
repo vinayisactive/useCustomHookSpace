@@ -24,7 +24,7 @@ export function generateStaticParams() {
 
 const page = async({ params }: {params: {slug: string}}): Promise<JSX.Element> => {
   try {    
-    const raw = await fetch(`http://localhost:3000/api/hook/${params.slug}`, { cache: "no-cache" });
+    const raw = await fetch(`https://usecustomhookspace.vercel.app/api/hook/${params.slug}`);
 
     if (!raw.ok) { 
       throw new Error(`Failed to fetch hook: ${raw.statusText}`); 
