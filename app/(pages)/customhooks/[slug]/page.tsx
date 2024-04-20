@@ -1,4 +1,4 @@
-import React from "react";
+import React, { cache } from "react";
 import { CodeSnippet } from '@/app/component/index'
 import parseAndSerialize from "@/Helpers/parseAndSerialize";
 import { hooks } from "@/static/hooks";
@@ -13,12 +13,6 @@ interface HookData {
   toUseCode: string;
 }
 
-interface PageParams {
-  params: {
-    slug: string;
-  };
-}
-
 
 export function generateStaticParams() {
  return hooks.map((slug : string) => {
@@ -28,14 +22,9 @@ export function generateStaticParams() {
   })
 }
 
-const page = async({ params }: PageParams): Promise<JSX.Element> => {
+const page = async({ params }: {params: {slug: string}}): Promise<JSX.Element> => {
   try {    
-    const raw = await fetch("https://usecustomhookspace.vercel.app/api/hook", {  
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ hookname: params?.slug }),
-      next: {revalidate: 7200}
-    });
+    const raw = await fetch(`http://localhost:3000/api/hook/${params.slug}`, { cache: "no-cache" });
 
     if (!raw.ok) { 
       throw new Error(`Failed to fetch hook: ${raw.statusText}`); 
