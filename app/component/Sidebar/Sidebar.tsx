@@ -9,12 +9,12 @@ const Sidebar = () => {
     const findRoute = router.split("/").at(2)
 
   return (
-    <div className="w-full h-[92vh] flex flex-col justify-between gap-3 text-white pb-5 ml-2 pt-10">
+    <div className="flex flex-col gap-3 text-white pb-5 ml-2 pt-10">
         <Link href={"/customhooks"}>
            <h1 className="text-xl hover:text-[#62F983] hover:pl-2 hover:scale-[10px] transition-all delay-50">All CustomHooks</h1>
         </Link>
       
-        <ul className="w-full h-[98%] flex flex-col gap-3 overflow-y-auto pl-1">
+        <ul className="flex flex-col gap-3 overflow-y-auto pl-1">
           {hooks?.map((hook : string,i: number) => {
             return (
               <li className="text-[#ffffff9c] text-sm hover:text-[#62F983] hover:pl-2 hover:scale-[10px] transition-all delay-50 " key={`hook${i*5}`}>
