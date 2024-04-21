@@ -14,12 +14,12 @@ export default function RootLayout({ children, }: Readonly<{ children: React.Rea
   return (
     <html lang="en">
       <body className={inter.className}>
-        <div className="h-[100vh] bg-black relative">
-          <div className="h-[8vh] w-[100%] relative flex justify-center items-center">
+        <div className="h-full bg-black flex flex-col justify-center items-center ">
+          <div className="h-[8vh] w-full flex justify-center items-center">
             <Navbar />
           </div>
 
-          <div className="h-[92vh] w-full">
+          <div className="w-full h-[92vh] flex justify-center items-center">
             {children}
           </div>
         </div>

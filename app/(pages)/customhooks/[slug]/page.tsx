@@ -16,9 +16,7 @@ interface HookData {
 
 export function generateStaticParams() {
  return hooks.map((slug : string) => {
-    return{
-      slug
-    }
+    return{ slug }
   })
 }
 
@@ -43,7 +41,7 @@ const page = async({ params }: {params: {slug: string}}): Promise<JSX.Element> =
     const serializedDescriptionTwo = parseAndSerialize(toUseDescription);
 
     return (
-      <div className="w-full h-full  flex flex-col items-center gap-14 overflow-y-scroll scroll-smooth text-white  pb-14 pt-6 lg:pr-4 ">
+      <div className="w-full h-full flex flex-col items-center gap-14 overflow-y-scroll scroll-smooth text-white  pb-14 pt-6 lg:pr-4 ">
 
         <div className="w-full flex flex-col gap-4 text-theme-green px-6 lg:px-0">
           <h1 className="text-2xl lg:text-4xl">
