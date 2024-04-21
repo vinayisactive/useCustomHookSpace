@@ -14,13 +14,15 @@ const renderButtons = (btnArr: string[]) => {
 
 const Background: React.FC<BackgroundProps> = ({ButtonArr, ButtonArrTwo} : any) => {
     return (
+      <div>
         <div className=" h-full w-full flex flex-col gap-1 bg-black -rotate-[25deg] scale-[1.5] overflow-hidden z-10">
           {Array.from({ length: 80 }).map((_ : any, index:any) => (
             <div key={index} className="flex items-center gap-3 overflow-hidden">
               {index % 2 === 0 ? renderButtons(ButtonArr) : renderButtons(ButtonArrTwo)}
             </div>
           ))}
-        </div>
+        </div> 
+      </div>
       );
 }
 
