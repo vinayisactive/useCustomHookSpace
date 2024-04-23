@@ -1,7 +1,7 @@
 import React from "react";
 import Background from "./HomeBackground/Background";
 import HeaderText from "./HomeHeaderText/HeaderText";
-import BlogCard from "../../BlogCard/BlogCard";
+import BlogCard from "../BlogCard/BlogCard";
 import { blog } from "@/static/blog";
 import { ButtonArr, ButtonArrTwo } from "@/static/btns";
 import GradientBar from "./HomeGradientBar/GradientBar";

@@ -1,4 +1,4 @@
-import BlogCard from "./BlogCard/BlogCard";
+import BlogCard from "./HomeComponents/BlogCard/BlogCard";
 import CodeSnippet from "./CodeSnippet/CodeSnippet";
 import HomeContainer from "./HomeComponents/HomeContainer/HomeContainer";
 import ListingCards from "./ListingCards/ListingCards";
