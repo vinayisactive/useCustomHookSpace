@@ -1,5 +1,5 @@
 import React from "react";
-import { Logo, HomeNav, TwitterNav, SearchButton, Search } from './navIndex'
+import { Logo, HomeNav, TwitterNav, SearchButton, Search, Login } from './navIndex'
 import { SearchContextProvider } from "@/contexts/SearchContext/SearchContext";
 
 const Navbar = () => {
@@ -18,7 +18,7 @@ const Navbar = () => {
     <SearchContextProvider>
          <div className="w-1/3 flex justify-end items-cente gap-2">
              <SearchButton/>
-             <div className="border lg:w-20 rounded-xl"></div>
+             <Login/>
          </div>
 
          <Search />
