@@ -1,6 +1,6 @@
 import React, { cache } from "react";
 import { CodeSnippet } from '@/app/component/index'
-import parseAndSerialize from "@/Helpers/parseAndSerialize";
+import parseAndSerialize from "@/helpers/parseAndSerialize";
 import { hooks } from "@/static/hooks";
 
 
