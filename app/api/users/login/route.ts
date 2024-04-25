@@ -17,7 +17,7 @@ export const POST = async(request: NextRequest) => {
             return NextResponse.json({error: "User doesn't exists with this email"},{status: 500}); 
 
 
-        const isPasswordCorrect = bcrypt.compare(password, user?.password); 
+        const isPasswordCorrect = await bcrypt.compare(password, user?.password); 
         if(!isPasswordCorrect)
             return NextResponse.json({error: "Password is incorrect"}, {status: 500}); 
 
