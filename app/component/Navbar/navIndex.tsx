@@ -7,5 +7,5 @@ import Login from "./AuthBtns/Login"
 import Logout from "./AuthBtns/Logout"
 
 export {
-  HomeNav, Logo, TwitterNav, SearchButton, Search, Login, Logout
+  HomeNav, Logo, TwitterNav, SearchButton, Search, Login, Logout,
 }
