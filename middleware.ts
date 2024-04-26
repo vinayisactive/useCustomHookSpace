@@ -5,13 +5,10 @@ import type { NextRequest } from 'next/server'
 export function middleware(request: NextRequest) {
     const path = request.nextUrl.pathname; 
     const accessToken = request.cookies.get("accessToken")?.value || ""
-    const isPublic = path === "/login" || path === "/signup" || path.startsWith("/customhooks");
+    const isPublic = path === "/login" || path === "/signup"
 
 
     if(accessToken && isPublic) {
-        if(path.startsWith("/customhooks")){
-            return ; 
-        }
        return NextResponse.redirect(new URL('/', request.url))
     }        
 
@@ -26,7 +23,6 @@ export const config = {
   matcher: [
     '/login',
     '/signup',
-    '/customhooks',
     '/customhooks/:path*'
   ]
 }
