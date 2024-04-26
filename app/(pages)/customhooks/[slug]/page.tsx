@@ -13,12 +13,19 @@ interface HookData {
   toUseCode: string;
 }
 
+export const generateMetadata = ({params}: {params: {slug: string}}) =>{
+  return {
+    title: params?.slug
+  }
+}
 
-export function generateStaticParams() {
+
+export const generateStaticParams = () => {
  return hooks.map((slug : string) => {
     return{ slug }
   })
 }
+
 
 const page = async({ params }: {params: {slug: string}}): Promise<JSX.Element> => {
   try {    

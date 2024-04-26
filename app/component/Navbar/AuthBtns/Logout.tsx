@@ -7,11 +7,17 @@ const Logout = () => {
   const handleLogout = async() => {
     try {
 
-      await axios.post("/api/users/logout");
+      const {data} = await axios.post("/api/users/logout");
       localStorage.setItem("userInfo", "");
       localStorage.setItem("isAuthenticated", "");
-      window.location.reload()
 
+      if (data?.success) {
+        router.push("/")
+    
+        setTimeout(() => {
+          window.location.reload();
+        }, 500);
+      }
     } catch (error: any) {
       return new Error(error.message);
     }    
