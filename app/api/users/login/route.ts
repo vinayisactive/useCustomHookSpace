@@ -28,7 +28,7 @@ export const POST = async(request: NextRequest) => {
             },  
             process.env.ACCESS_TOKEN_SECRET!,
             {
-                expiresIn: '28d'
+                expiresIn: '30d'
             }
          ); 
 
@@ -48,7 +48,10 @@ export const POST = async(request: NextRequest) => {
             }
         ); 
 
-        response.cookies.set("accessToken", generatedAccessToken, {httpOnly: true}); 
+        response.cookies.set("accessToken", generatedAccessToken, {
+            httpOnly: true,
+            expires: new Date(Date.now() + 30 * 24 * 60 * 60 * 1000), 
+        }); 
         
         return response;
     } catch (error: any) {
