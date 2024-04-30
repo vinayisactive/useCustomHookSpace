@@ -40,7 +40,6 @@ const SignUp = () => {
   const [error, setError] = useState(""); 
   
 
-
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
     setFormData((prev) => ({
@@ -51,6 +50,7 @@ const SignUp = () => {
 
   const registerUser = async()=> {
     try {
+      setError("");
       setLoading(true); 
       const { data } = await axios.post("/api/users/signup", formData ); 
       setLoading(false); 
@@ -65,7 +65,6 @@ const SignUp = () => {
 
   const handleSubmit = async(event: React.FormEvent) => {
     event.preventDefault();
-    console.log(formData);
     await registerUser()
   }
 
@@ -83,7 +82,6 @@ const SignUp = () => {
             id="name"
             value={formData.name}
             onChange={handleChange}
-            placeholder=""
             ref={InputRef}
             className="w-full py-2 px-3 mt-2  rounded-lg bg-black border-2 border-[#202020] placeholder:text-gray-500 placeholder:text-md"
           />
@@ -99,7 +97,6 @@ const SignUp = () => {
             id="email"
             value={formData.email}
             onChange={handleChange}
-            placeholder=""
             className="w-full py-2 px-3 mt-2  rounded-lg bg-black border-2 border-[#202020] placeholder:text-gray-500 placeholder:text-md"
           />
         </div>
@@ -114,7 +111,7 @@ const SignUp = () => {
             id="password"
             value={formData.password}
             onChange={handleChange}
-            placeholder="***"
+            placeholder="6 character password"
             className="w-full py-2 px-3 mt-2  rounded-lg bg-black border-2 border-[#202020] placeholder:text-gray-500 placeholder:text-md"
           />
         </div>
@@ -125,7 +122,7 @@ const SignUp = () => {
 
         <button 
           disabled={disabled}
-          className={`w-full py-2 px-3 mt-6 text-black rounded-lg bg-white ${disabled? "bg-[#ffffffad] cursor-not-allowed": " bg-green-theme-green hover:bg-green-500 cursor-pointer"} active:bg-green-500`}>
+          className={`w-full py-2 px-3 mt-6 text-black rounded-lg bg-white ${disabled? "bg-[#ffffff6d] cursor-not-allowed": " bg-green-theme-green hover:bg-green-500 cursor-pointer"} active:bg-green-500`}>
            {loading? "Registering User..." : "Sign Up"}
         </button>
 

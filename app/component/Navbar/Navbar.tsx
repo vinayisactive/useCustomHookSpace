@@ -1,16 +1,21 @@
 "use client"
 import React, { useEffect, useState } from "react";
-import { Logo, HomeNav, TwitterNav, SearchButton, Search, Login, Logout } from './navIndex'
+import { Logo, HomeNav, TwitterNav, SearchButton, Search, Login, Logout, Profile } from './navIndex'
 import { SearchContextProvider } from "@/contexts/SearchContext/SearchContext";
 
 
 const Navbar = () => {
 
-  const [isAuthenticated, setIsAuthenticated] = useState()
+  const [isAuthenticated, setIsAuthenticated] = useState();
+  const [userInfo, setUserInfo] = useState(); 
 
   useEffect(() => {
     let isAuth : any= localStorage.getItem('isAuthenticated');
     isAuth = isAuth === "true"; 
+    let userInfo : any = localStorage.getItem("userInfo"); 
+    if(userInfo)
+        setUserInfo(JSON.parse(userInfo));
+    
     setIsAuthenticated(isAuth);
   },[]); 
 
@@ -30,7 +35,7 @@ const Navbar = () => {
          <div className="w-1/3 flex justify-end items-cente gap-2">
              <SearchButton/>
              {
-                 isAuthenticated? <Logout/>:  <Login/> 
+                 isAuthenticated? <Profile userInfo={userInfo} /> :  <Login/> 
              }      
          </div>
 

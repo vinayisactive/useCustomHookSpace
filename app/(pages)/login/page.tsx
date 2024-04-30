@@ -15,27 +15,26 @@ const Login = () => {
   const InputRef = useRef<HTMLInputElement>(null);
   const isAuthenticated = true; 
 
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(""); 
+  const [disabled, setDisabled] = useState(true); 
+  const [formData, setFormData] = useState<FormData>({
+    email: "",
+    password: ""
+  });
+
+  
   useEffect(() => {
     if (InputRef.current) {
       InputRef.current.focus();
     }
   },[])
 
-  const [formData, setFormData] = useState<FormData>({
-    email: "",
-    password: ""
-  });
-
-  const [disabled, setDisabled] = useState(true); 
   useEffect(() => {
     const isFilled = Object.values(formData).every(value => value !== ""); 
 
     setDisabled(!isFilled)
   },[formData])
-
-
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(""); 
 
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -90,7 +89,7 @@ const Login = () => {
             id="email"
             value={formData.email}
             onChange={handleChange}
-            placeholder=""
+            ref={InputRef}
             className="w-full py-2 px-3 mt-2  rounded-lg bg-black border-2 border-[#202020] placeholder:text-gray-500 placeholder:text-md"
           />
         </div>
@@ -116,8 +115,8 @@ const Login = () => {
 
         <button 
           disabled={disabled}
-          className={`w-full py-2 px-3 mt-6 text-black rounded-lg bg-white ${disabled? "bg-[#ffffffad] cursor-not-allowed": " bg-green-theme-green hover:bg-green-500 cursor-pointer"} active:bg-green-500`}>
-           {loading? "Logging In User..." : "Login"}
+          className={`w-full py-2 px-3 mt-6 text-black rounded-lg bg-white ${disabled? "bg-[#ffffff6d] cursor-not-allowed": " bg-green-theme-green hover:bg-green-500 cursor-pointer"} active:bg-green-500`}>
+           {loading? "Logging In" : "Login"}
         </button>
 
 

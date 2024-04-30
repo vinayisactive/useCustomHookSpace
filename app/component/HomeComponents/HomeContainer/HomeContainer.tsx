@@ -18,7 +18,7 @@ const HomeContainer = () => {
           <HeaderText />
       </div>
 
-      <div className="absolute bottom-56 sm:bottom-48 lg:bottom-28 z-20">
+      <div className="absolute bottom-56 sm:bottom-48 lg:bottom-28 z-30">
           <BlogCard blog={blog} />
       </div>
     </div>
