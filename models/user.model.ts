@@ -3,7 +3,8 @@ import mongoose, { Document, Model, Schema } from "mongoose";
 interface userSchema{
     name: string,
     email: string, 
-    password: string
+    password: string,
+    isAdmin: boolean
 }
 
 interface userDocument extends userSchema, Document{}
@@ -22,6 +23,10 @@ const userSchema = new Schema<userDocument, userModel>({
  password: {
     type: String, 
     required: true
+ },
+ isAdmin: {
+   type: Boolean,
+   default: false
  }
 },{timestamps: true}); 
 

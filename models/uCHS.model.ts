@@ -3,7 +3,7 @@ import mongoose, { Schema, Document, Model } from "mongoose";
 interface Hook {
  hookname: string;
  description: string;
- primarylang: string;
+ code: string;
  toUse: string; 
  toUseDescription: string; 
  toUseCode: string
@@ -22,7 +22,7 @@ const hookSchema = new Schema<HookDocument, HookModel>({
      type: String,
      required: true,
   },
-  primarylang: {
+  code: {
      type: String,
      required: true,
      unique: true,
