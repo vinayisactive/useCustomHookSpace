@@ -3,6 +3,7 @@ import axios from "axios";
 import React, { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import ReturnToHome from "@/app/component/ReturnToHome/ReturnToHome";
 
 interface FormData {
   email: string;
@@ -69,9 +70,10 @@ const SignUp = () => {
   }
 
   return (
-    <div className="w-screen h-screen absolute top-0 flex justify-center items-center bg-black text-white">
-      <form className="w-[350px] sm:w-[400px] h-[400px] flex flex-col justify-center" onSubmit={handleSubmit}>
+    <div className="w-screen h-screen absolute top-0 flex flex-col justify-center items-center gap-6 bg-black text-white">
+            <ReturnToHome route={"Signup"}/>
 
+      <form className="w-[350px] sm:w-[400px] h-[400px] flex flex-col justify-center" onSubmit={handleSubmit}>
       <div>
           <label htmlFor="name" className="text-lg">
             Name

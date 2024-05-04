@@ -6,7 +6,7 @@ import { hooks } from "@/static/hooks";
 
 interface HookData {
   hookname: string;
-  primarylang: string;
+  code: string;
   description: string;
   toUseDescription: string;
   toUse: string;
@@ -42,7 +42,7 @@ const page = async({ params }: {params: {slug: string}}): Promise<JSX.Element> =
       throw new Error(`Invalid data format`);
     }
 
-    const { hookname, primarylang, description, toUseDescription, toUse, toUseCode } = hookData;
+    const { hookname, code, description, toUseDescription, toUse, toUseCode } = hookData;
 
     const serializedDescriptionOne = parseAndSerialize(description);
     const serializedDescriptionTwo = parseAndSerialize(toUseDescription);
@@ -60,7 +60,7 @@ const page = async({ params }: {params: {slug: string}}): Promise<JSX.Element> =
           />
         </div>
 
-        <CodeSnippet primaryLang={primarylang} hookname={hookname} />
+        <CodeSnippet primaryLang={code} hookname={hookname} />
 
 
          <div className="w-full flex flex-col gap-4 text-  px-6 lg:px-0">
