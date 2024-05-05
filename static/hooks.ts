@@ -1,14 +1,16 @@
 export const hooks = [
+  "useScript",
   "useIdle",
+  "useOnScreen",
   "useDataAPI",
   "useLocalStorage",
+  "useHasFocus",
   "useInfiniteScroll",
   "useThrottle",
   "usePrevious",
+  "useResponsive",
   "useDebounce",
   "useCurrentLocation",
   "useRealTimeLocation",
   "useInternetConnection",
-
-
 ];
