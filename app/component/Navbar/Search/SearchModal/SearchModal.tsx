@@ -58,6 +58,7 @@ const SearchModal = () => {
 
     return (
         <div className="absolute w-[80%] sm:w-[50%] lg:w-[35%] h-[60%] lg:h-[60%] flex flex-col justify-start items-center bg-modal-dark border border-gray-light rounded-lg">
+          
             <div className="w-full flex justify-start items-center text-white px-4">
                 <IoSearchOutline className="text-xl" />
                 <input
@@ -70,10 +71,10 @@ const SearchModal = () => {
                 />
             </div>
 
-            <div className=" w-full h-[95%] flex flex-col gap-2 border-t border-gray-light ">
-                <div></div>
+            <div className=" w-full h-[90%] flex flex-col gap-2 border-t border-gray-light pt-2">
+              
 
-                <div className="w-full h-full flex flex-col items-start gap-1 text-white px-2">
+                <div className="w-full h-full flex flex-col items-start gap-1 text-white px-2 overflow-y-scroll">
                     {filteredData.length === 0 ? (
                         <li className="w-full h-full flex justify-center items-center gap-2 ">
                             {`No result found =( `}
