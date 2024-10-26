@@ -9,7 +9,7 @@ import {
   Login,
   Profile,
 } from "../indexes/navbar-index";
-import { SearchContextProvider } from "@/contexts/SearchContext/SearchContext";
+import { SearchContextProvider } from "@/contexts/SearchContext";
 import MaxWithWrapper from "../ui/max-width-wrapper";
 
 const Navbar = () => {

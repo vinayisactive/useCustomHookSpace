@@ -2,7 +2,7 @@
 import React, {useContext, useEffect} from "react";
 import { MdKeyboardCommandKey } from "react-icons/md";
 import { IoIosSearch } from "react-icons/io";
-import { SearchContext } from "@/contexts/SearchContext/SearchContext";
+import { SearchContext } from "@/contexts/SearchContext";
 
 
 const SearchButton = () => {

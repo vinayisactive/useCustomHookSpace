@@ -1,7 +1,7 @@
 "use client"
 import React, { useContext } from "react";
 import SearchModal from "./search-modal";
-import { SearchContext } from "@/contexts/SearchContext/SearchContext";
+import { SearchContext } from "@/contexts/SearchContext";
 
 const Search = () => {
   const { searchActive, setSearch }: any = useContext(SearchContext);
