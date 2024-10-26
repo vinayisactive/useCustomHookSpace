@@ -1,90 +1,48 @@
-import React, { cache } from "react";
-import { CodeSnippet } from '@/app/component/index'
-import parseAndSerialize from "@/Helper/parseAndSerialize";
-import { hooks } from "@/static/hooks";
+import React from "react";
+import parseAndSerialize from "@/helper/parseAndSerialize";
+import CustomHook from "@/component/section/custom-hook";
+import HookError from "@/component/ui/hook-error";
+import { hooks } from "@/static/index";
 
-
-interface HookData {
-  hookname: string;
-  code: string;
-  description: string;
-  toUseDescription: string;
-  toUse: string;
-  toUseCode: string;
-}
-
-export const generateMetadata = ({params}: {params: {slug: string}}) =>{
+export const generateMetadata = ({ params }: { params: { slug: string } }) => {
   return {
-    title: params?.slug
-  }
-}
-
+    title: params?.slug,
+  };
+};
 
 export const generateStaticParams = () => {
- return hooks.map((slug : string) => {
-    return{ slug }
-  })
-}
+  return hooks.map((slug: string) => {
+    return { slug };
+  });
+};
 
-
-const page = async({ params }: {params: {slug: string}}): Promise<JSX.Element> => {
-  try {    
+const page = async ({ params }: { params: { slug: string } }) => {
+  try {
     const raw = await fetch(`https://usecustomhookspace.vercel.app/api/hook/${params.slug}`);
-
-    if (!raw.ok) { 
-      throw new Error(`Failed to fetch hook: ${raw.statusText}`); 
-    }
-
     const data = await raw.json();
-    const hookData : HookData  | undefined = data?.hook;
-    
-    if (!hookData) {
-      throw new Error(`Invalid data format`);
+    const hook = await data?.hook;
+
+    if (!hook) {
+      return <HookError message={"Hook not found"} />;
     }
 
-    const { hookname, code, description, toUseDescription, toUse, toUseCode } = hookData;
+    const { hookname, code, description, toUseDescription, toUse, toUseCode } = hook;
 
     const serializedDescriptionOne = parseAndSerialize(description);
     const serializedDescriptionTwo = parseAndSerialize(toUseDescription);
 
     return (
-      <div className="w-full h-full flex flex-col items-center gap-14 overflow-y-scroll scroll-smooth text-white  pb-14 pt-6 lg:pr-4 ">
-
-        <div className="w-full flex flex-col gap-4 text-theme-green px-6 lg:px-0">
-          <h1 className="text-2xl lg:text-4xl">
-             ▸{hookname}
-          </h1>
-          <div
-            dangerouslySetInnerHTML={{ __html: serializedDescriptionOne }}
-            className="text-lg text-desc-gray"
-          />
-        </div>
-
-        <CodeSnippet primaryLang={code} hookname={hookname} />
-
-
-         <div className="w-full flex flex-col gap-4 text-  px-6 lg:px-0">
-            <h1 className="text-2xl lg:text-4xl">
-              ▸Using <span className="text-theme-green"> {hookname} </span>customhook
-            </h1>
-            <div
-              dangerouslySetInnerHTML={{ __html: serializedDescriptionTwo }}
-              className="text-lg text-desc-gray"
-           />
-          </div>
-         
-        <CodeSnippet primaryLang={toUseCode} hookname={toUse} />
-
-      </div>
+      <CustomHook
+        hookname={hookname}
+        descOne={serializedDescriptionOne}
+        code={code}
+        toUse={toUse}
+        descTwo={serializedDescriptionTwo}
+        toUseCode={toUseCode}
+      />
     );
-
-  } catch (err) {
-    console.log(err);
-    return (
-      <div className=" w-full h-full flex justify-center items-center text-3xl text-white">
-        {params.slug} hook is coming soon...
-      </div>
-    );
+  } catch (err: any) {
+    return <HookError message={err.message} />;
   }
 };
 

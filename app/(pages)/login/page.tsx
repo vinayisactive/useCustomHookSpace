@@ -1,14 +1,10 @@
 "use client";
 import axios from "axios";
-import React, { use, useEffect, useRef, useState } from "react";
+import React, {useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import ReturnToHome from "@/app/component/ReturnToHome/ReturnToHome";
-
-interface FormData {
-  email: string;
-  password: string,
-}
+import ReturnToHome from "@/component/ui/return-to-home";
+import { LoginInterface } from "@/interfaces/ts-interfaces";
 
 const Login = () => {
 
@@ -19,7 +15,7 @@ const Login = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(""); 
   const [disabled, setDisabled] = useState(true); 
-  const [formData, setFormData] = useState<FormData>({
+  const [formData, setFormData] = useState<LoginInterface>({
     email: "",
     password: ""
   });

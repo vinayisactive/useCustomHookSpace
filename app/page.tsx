@@ -1,11 +1,9 @@
-import { HomeContainer } from './component/index'
+import Home from '@/component/section/home'
 
-const Home = () => {
+const page = () => {
   return (
-    <div className=" w-full flex flex-col items-center bg-black overflow-x-hidden">
-       <HomeContainer />
-    </div>
+       <Home />
   );
 };
 
-export default Home;
+export default page;

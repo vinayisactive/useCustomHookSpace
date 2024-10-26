@@ -1,21 +1,13 @@
-import {Sidebar} from '@/app/component/index'
+import MaxWithWrapper from "@/component/ui/max-width-wrapper";
+import Sidebar from "@/component/ui/side-bar";
 
-export default async function CustomhookpageLayout({
-    children,
-}: {
-    children: React.ReactNode;
-}) {
+export default async function CustomhookpageLayout({ children }: {children: React.ReactNode}) {
     return (
-        <div className="h-full w-full lg:w-[1100px] xl:w-[1400px] flex justify-between">
-            
-            <div className="h-full w-[20%] hidden lg:flex ">
-                <Sidebar />
-            </div>
-
-            <div className="w-full lg:w-[75%] scroll-smooth px-2 pt-4">
-                {children}
-            </div>
-
-        </div>
+        <MaxWithWrapper className="flex justify-between gap-3 mt-14 bg-black overflow-x-hidden">
+            <Sidebar />
+                <div className=" w-full lg:w-[80%] overflow-x-hidden">
+                      {children}
+                </div>
+        </MaxWithWrapper>
     );
 }

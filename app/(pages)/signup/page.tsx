@@ -3,13 +3,8 @@ import axios from "axios";
 import React, { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import ReturnToHome from "@/app/component/ReturnToHome/ReturnToHome";
-
-interface FormData {
-  email: string;
-  password: string,
-  name: string
-}
+import ReturnToHome from "@/component/ui/return-to-home";
+import { SignUpInterface } from "@/interfaces/ts-interfaces";
 
 const SignUp = () => {
 
@@ -22,7 +17,7 @@ const SignUp = () => {
     }
   },[])
 
-  const [formData, setFormData] = useState<FormData>({
+  const [formData, setFormData] = useState<SignUpInterface>({
     email: "",
     password: "",
     name :""
