@@ -1,5 +1,5 @@
 import React from "react";
-import parseAndSerialize from "@/helper/parseAndSerialize";
+import parseAndSerialize from "@/helpers/parseAndSerialize";
 import CustomHook from "@/component/section/custom-hook";
 import HookError from "@/component/ui/hook-error";
 import { hooks } from "@/static/index";
