@@ -21,6 +21,6 @@
       "@/*": ["./*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "app/component/ui/code-snippet.tsx", "helper/copyToClipboard.ts", "contexts/SearchContext/SearchContext.js"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "app/component/ui/code-snippet.tsx", "helpers/copyToClipboard.ts", "contexts/SearchContext/SearchContext.js"],
   "exclude": ["node_modules" ]
 }
