@@ -26,7 +26,7 @@ const Navbar = () => {
   }, []);
 
   return (
-    <MaxWithWrapper className="h-[5vh] flex justify-between items-center text-white z-50 px-2 pt-4">
+    <MaxWithWrapper className="h-[5vh] flex justify-between items-center text-white z-40 px-2 pt-8">
         <div className="w-1/3 flex justify-start">
           <Logo />
         </div>

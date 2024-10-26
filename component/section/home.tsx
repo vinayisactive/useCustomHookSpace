@@ -13,7 +13,7 @@ const Home = () => {
       <HomeBackground ButtonArr={ButtonArr} ButtonArrTwo={ButtonArrTwo} />
       <GradientBar />
 
-      <div className="w-full md:w-[80%] lg:w-[800px] absolute top-0 z-30 mt-20">
+      <div className="w-full md:w-[80%] lg:w-[800px] absolute top-0 z-30 mt-24">
         <HeaderText />
       </div>
 

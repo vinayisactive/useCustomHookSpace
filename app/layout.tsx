@@ -19,7 +19,7 @@ export default function RootLayout({
       <body className={inter.className}>
         <div className="w-screen bg-black flex flex-col justify-center items-center overflow-x-hidden">
           <Navbar />
-          <div>{children}</div>
+          <div className="">{children}</div>
         </div>
       </body>
     </html>

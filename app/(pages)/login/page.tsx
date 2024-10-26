@@ -73,7 +73,7 @@ const Login = () => {
   }
 
   return (
-    <div className="w-screen h-screen absolute top-0 flex flex-col justify-center items-center bg-black text-white">
+    <div className=" h-screen w-screen absolute top-0 left-0 z-40 flex flex-col justify-center items-center bg-black text-white">
       <ReturnToHome route={"Login"}/>
 
       <form className="w-[350px] sm:w-[400px] h-[400px] flex flex-col justify-center" onSubmit={handleSubmit}>
