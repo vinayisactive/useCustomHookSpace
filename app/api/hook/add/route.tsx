@@ -1,52 +1,56 @@
-import dbconnect from "@/database/dbconnect"
+import dbconnect from "@/database/dbconnect";
 import { customhooks } from "@/models/uCHS.model";
 import { NextRequest, NextResponse } from "next/server";
 import { verifyJWT } from "@/helpers/verifyJWT";
 import { users } from "@/models/user.model";
-
+import ResponseHandler from "@/helpers/ResponseHandler";
 
 dbconnect();
-export const POST = async(request: NextRequest, respone: NextResponse) => {
-    const userId = await verifyJWT(request);
+export const POST = async (request: NextRequest, respone: NextResponse) => {
+  try {
+    const userId = await verifyJWT(request, "id");
     const { hookname, description, code, toUse, toUseDescription, toUseCode } = await request.json();
 
-    if (!hookname || !description || !code  || !toUse || !toUseCode || !toUseDescription)
-        return NextResponse.json({error: "Provide all the value"}, {status: 401 }); 
-
-    if(!userId)
-        return NextResponse.json({error: "Invalid user"},{status: 401}); 
-
-    try {
-        const user = await users.findById(userId);
-        if(!user)
-         return NextResponse.json({error: "User doesn't exists"}, {status: 404});
-        
-        if(user.isAdmin === false)
-            return NextResponse.json({error: "This user doesn't have custom hook post permissions"},{status: 500}); 
-
-            const postCustomhookRefrence = await customhooks.create({
-                hookname, 
-                description, 
-                code, 
-                toUse, 
-                toUseCode,
-                toUseDescription
-            }); 
-
-            if(!postCustomhookRefrence)
-                    return NextResponse.json({error: "Failed to post customhook"}, {status: 500}); 
-
-            return NextResponse.json(
-                {
-                    success: true,
-                    message: "Custom hook posted successfully",
-                },
-                {
-                    status: 200
-                }
-            ); 
-
-    } catch (error: any) {
-        return NextResponse.json({error: error.message}, {status: 500}); 
+    if (
+      !hookname ||
+      !description ||
+      !code ||
+      !toUse ||
+      !toUseCode ||
+      !toUseDescription
+    ) {
+      return ResponseHandler.error("All fields are required", 400);
     }
-}
+
+    const user = await users.findById(userId);
+    if (!user) {
+      return ResponseHandler.error("User not found", 404);
+    }
+
+    if (!user.isAdmin) {
+      return ResponseHandler.error("Insufficient permissions to post custom hooks", 403);
+    }
+
+    const data = await customhooks.create({
+      hookname,
+      description,
+      code,
+      toUse,
+      toUseCode,
+      toUseDescription,
+    });
+
+    if (!data) {
+      return ResponseHandler.error("Failed to create custom hook. Please try again later.",500);
+    }
+
+    return ResponseHandler.success(data);
+
+  } catch (error: any) {
+    if (error.message.includes("token")) {
+      return ResponseHandler.error(error.message, 401);
+    }
+
+    return ResponseHandler.error("An unexpected error occurred while creating the custom hook.", 500);
+  }
+};
