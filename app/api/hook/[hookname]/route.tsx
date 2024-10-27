@@ -1,4 +1,4 @@
-import { customhooks } from "@/models/uCHS.model";
+import { customhooks } from "@/database/models/uCHS.model";
 import dbconnect from "@/database/dbconnect";
 import { NextResponse, NextRequest } from "next/server";
 import ResponseHandler from "@/helpers/ResponseHandler";

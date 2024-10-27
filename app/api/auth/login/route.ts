@@ -1,5 +1,5 @@
 import dbconnect from "@/database/dbconnect";
-import { users } from "@/models/user.model";
+import { users } from "@/database/models/user.model";
 import { NextRequest, NextResponse } from "next/server";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";

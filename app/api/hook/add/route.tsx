@@ -1,8 +1,8 @@
 import dbconnect from "@/database/dbconnect";
-import { customhooks } from "@/models/uCHS.model";
+import { customhooks } from "@/database/models/uCHS.model";
 import { NextRequest, NextResponse } from "next/server";
 import { verifyJWT } from "@/helpers/verifyJWT";
-import { users } from "@/models/user.model";
+import { users } from "@/database/models/user.model";
 import ResponseHandler from "@/helpers/ResponseHandler";
 
 dbconnect();
