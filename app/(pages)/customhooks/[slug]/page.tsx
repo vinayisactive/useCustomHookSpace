@@ -18,15 +18,14 @@ export const generateStaticParams = () => {
 
 const page = async ({ params }: { params: { slug: string } }) => {
   try {
-    const raw = await fetch(`https://usecustomhookspace.vercel.app/api/hook/${params.slug}`);
-    const data = await raw.json();
-    const hook = await data?.hook;
+    const raw = await fetch(`${process.env.UCHS_URL}${params.slug}`);
+    const response = await raw.json();
 
-    if (!hook) {
+    if (!response?.data) {
       return <HookError message={"Hook not found"} />;
     }
 
-    const { hookname, code, description, toUseDescription, toUse, toUseCode } = hook;
+    const { hookname, code, description, toUse, toUseDescription, toUseCode } = response?.data;
 
     const serializedDescriptionOne = parseAndSerialize(description);
     const serializedDescriptionTwo = parseAndSerialize(toUseDescription);

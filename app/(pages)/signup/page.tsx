@@ -48,7 +48,7 @@ const SignUp = () => {
     try {
       setError("");
       setLoading(true); 
-      const { data } = await axios.post("/api/users/signup", formData ); 
+      const { data } = await axios.post("/api/auth/signup", formData ); 
       setLoading(false); 
 
       if(data?.success)

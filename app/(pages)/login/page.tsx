@@ -46,12 +46,7 @@ const Login = () => {
     try {
       setError("")
       setLoading(true); 
-      const { data } = await axios.post("/api/users/login", formData ); 
-
-      const serializedUserInfoObject = JSON.stringify(data?.user);
-      localStorage.setItem('userInfo', serializedUserInfoObject);
-      localStorage.setItem("isAuthenticated", isAuthenticated.toString()); 
-
+      const { data } = await axios.post("/api/auth/login", formData ); 
       setLoading(false); 
 
       if (data?.success) {
