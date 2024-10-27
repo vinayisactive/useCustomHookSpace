@@ -1,5 +1,5 @@
 import React from "react";
-import { ButtonArr, ButtonArrTwo, blog } from "@/static/index";
+import { ButtonArr, ButtonArrTwo, blog } from "@/utils/static/index";
 import {
   HomeBackground,
   HeaderText,

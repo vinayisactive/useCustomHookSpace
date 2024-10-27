@@ -2,7 +2,7 @@
 import React, { useState, useEffect, useRef, useContext } from "react";
 import Link from "next/link";
 import {useRouter } from "next/navigation";
-import { hooks } from "@/static/index";
+import { hooks } from "@/utils/static/index";
 import { SearchContext } from "@/contexts/SearchContext";
 import { GoArrowUpRight } from "react-icons/go";
 import { IoSearchOutline } from "react-icons/io5";

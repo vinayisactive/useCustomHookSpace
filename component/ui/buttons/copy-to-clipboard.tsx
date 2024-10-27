@@ -1,7 +1,7 @@
 "use client"
 import React from 'react'
 import { FiCopy } from "react-icons/fi";
-import copyToClipboard  from '@/helpers/copyToClipboard';
+import copyToClipboard  from '@/utils/helpers/copyToClipboard';
 
 interface copyToClipboardProps {
   text : string

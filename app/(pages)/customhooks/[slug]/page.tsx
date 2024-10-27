@@ -1,8 +1,8 @@
 import React from "react";
-import parseAndSerialize from "@/helpers/parseAndSerialize";
+import parseAndSerialize from "@/utils/helpers/parseAndSerialize";
 import CustomHook from "@/component/section/custom-hook";
 import HookError from "@/component/ui/hook-error";
-import { hooks } from "@/static/index";
+import { hooks } from "@/utils/static/index";
 
 export const generateMetadata = ({ params }: { params: { slug: string } }) => {
   return {

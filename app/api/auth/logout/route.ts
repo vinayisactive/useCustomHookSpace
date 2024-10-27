@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import ResponseHandler from "@/helpers/ResponseHandler";
+import ResponseHandler from "@/utils/helpers/ResponseHandler";
 
 export const POST = async(request: NextRequest, respone: NextResponse) => {
   try {

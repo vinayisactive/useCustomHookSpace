@@ -1,7 +1,7 @@
 import { customhooks } from "@/database/models/uCHS.model";
 import dbconnect from "@/database/dbconnect";
 import { NextResponse, NextRequest } from "next/server";
-import ResponseHandler from "@/helpers/ResponseHandler";
+import ResponseHandler from "@/utils/helpers/ResponseHandler";
 
 dbconnect();
 export const GET = async (request: NextRequest, { params }: {params: { hookname: string }}) : Promise<NextResponse>=> {

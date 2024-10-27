@@ -1,9 +1,9 @@
 import dbconnect from "@/database/dbconnect";
 import { customhooks } from "@/database/models/uCHS.model";
 import { NextRequest, NextResponse } from "next/server";
-import { verifyJWT } from "@/helpers/verifyJWT";
+import { verifyJWT } from "@/utils/helpers/verifyJWT";
 import { users } from "@/database/models/user.model";
-import ResponseHandler from "@/helpers/ResponseHandler";
+import ResponseHandler from "@/utils/helpers/ResponseHandler";
 
 dbconnect();
 export const POST = async (request: NextRequest, respone: NextResponse) => {

@@ -1,7 +1,7 @@
 import React from 'react'
 import ListDot from './list-dot';
 import { IoIosArrowForward } from "react-icons/io";
-import { instructions } from '@/static/index';
+import { instructions } from '@/utils/static/index';
 import Link from 'next/link'
 
 

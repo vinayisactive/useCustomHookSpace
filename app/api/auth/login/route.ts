@@ -3,7 +3,7 @@ import { users } from "@/database/models/user.model";
 import { NextRequest, NextResponse } from "next/server";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
-import ResponseHandler from "@/helpers/ResponseHandler";
+import ResponseHandler from "@/utils/helpers/ResponseHandler";
 
 dbconnect();
 export const POST = async (request: NextRequest) => {

@@ -1,6 +1,6 @@
 import { NextRequest } from "next/server";
-import { verifyJWT } from "@/helpers/verifyJWT";
-import ResponseHandler from "@/helpers/ResponseHandler";
+import { verifyJWT } from "@/utils/helpers/verifyJWT";
+import ResponseHandler from "@/utils/helpers/ResponseHandler";
 import { users } from "@/database/models/user.model";
 import dbconnect from "@/database/dbconnect";
 

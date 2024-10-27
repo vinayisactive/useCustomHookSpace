@@ -1,4 +1,4 @@
-import { hooks } from "@/static/index";
+import { hooks } from "@/utils/static/index";
 import ListingCards from "@/component/ui/listing-card";
 
 const page = () => {
