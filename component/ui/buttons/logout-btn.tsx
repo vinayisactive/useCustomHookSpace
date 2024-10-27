@@ -7,7 +7,7 @@ const Logout = () => {
   const handleLogout = async() => {
     try {
 
-      const {data} = await axios.post("/api/users/logout");
+      const {data} = await axios.post("/api/auth/logout");
       localStorage.setItem("userInfo", "");
       localStorage.setItem("isAuthenticated", "");
 
