@@ -1,19 +1,29 @@
 import { NextRequest } from "next/server";
-import jwt from 'jsonwebtoken'
+import jwt, { JwtPayload }from 'jsonwebtoken'
 
-export const verifyJWT = (request: NextRequest) => {
+type returnValue = "jwt" | "id"
+
+export const verifyJWT = async(request: NextRequest, returnValue : returnValue = "id") => {
     try {
-        const accessToken = request.cookies.get("accessToken")?.value || ""
-        if(!accessToken)
+        const accessToken = await request.cookies.get("accessToken")?.value || ""
+        if(!accessToken){
                 throw new Error("token isn't present"); 
-        
+        }
+
         const decodedToken: any = jwt.verify(
             accessToken, 
             process.env.ACCESS_TOKEN_SECRET!
-        ); 
+        ) as JwtPayload; 
 
-    return decodedToken._id; 
+        if (!decodedToken || !decodedToken._id) {
+            throw new Error("Invalid token structure");
+        }
+
+        return returnValue === "jwt" ? accessToken : decodedToken._id;
     } catch (error: any) {
-        throw new Error(error.message)
+        if (error instanceof jwt.JsonWebTokenError) {
+            throw new Error("Invalid or expired token");
+        }
+        throw new Error(error.message);
     }
 }; 
