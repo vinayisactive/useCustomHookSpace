@@ -5,7 +5,7 @@ import SearchButton from "../ui/buttons/search-btn-ui";
 import Search from "../ui/search-modal/search-modal-off";
 import Login from "../ui/buttons/login-btn";
 import Logout from "../ui/buttons/logout-btn";
-import Profile from "../ui/buttons/user-btn";
+import UserButton from "../ui/buttons/user-btn";
 
 export {
   HomeNav,
@@ -15,5 +15,5 @@ export {
   Search,
   Login,
   Logout,
-  Profile,
+  UserButton,
 };
