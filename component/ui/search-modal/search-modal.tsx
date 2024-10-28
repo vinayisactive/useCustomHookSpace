@@ -55,7 +55,7 @@ const SearchModal = () => {
         setHoverIndex((prev) =>
           prev === filteredData.length - 1 ? 0 : prev + 1
         );
-      } else if (key === "Enter" && filteredData.length > 0) {
+      } else if (key === "Enter") {
         router.push(`/customhooks/${filteredData[hoverIndex]}`);
         setSearch(false);
       }
@@ -80,7 +80,7 @@ const SearchModal = () => {
   }, [hoverIndex]);
 
   useEffect(() => {
-    if (filteredData.length > 0) {
+    if (filteredData.length === 1) {
       setHoverIndex(0); 
     }
   }, [filteredData]);
