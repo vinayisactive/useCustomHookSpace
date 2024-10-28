@@ -71,13 +71,19 @@ const SearchModal = () => {
   }, [handleKeyNavigation]);
 
   useEffect(() => {
-    if (itemRefs.current && itemRefs.current[hoverIndex]) {
-        (itemRefs.current[hoverIndex] as HTMLAnchorElement).scrollIntoView({
-          behavior: "smooth",
-          block: "nearest",
-        });
-      }
+ if (itemRefs.current && itemRefs.current[hoverIndex]) {
+    (itemRefs.current[hoverIndex] as HTMLAnchorElement).scrollIntoView({
+      behavior: "smooth",
+      block: "nearest",
+    });
+  }
   }, [hoverIndex]);
+
+  useEffect(() => {
+    if (filteredData.length > 0) {
+      setHoverIndex(0); 
+    }
+  }, [filteredData]);
 
   return (
     <div
