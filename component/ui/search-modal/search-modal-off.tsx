@@ -5,7 +5,7 @@ import { SearchContext } from "@/contexts/SearchContext";
 
 const Search = () => {
   const { searchActive, setSearch }: any = useContext(SearchContext);
-
+  
   return (
     <div>
       { searchActive && (
